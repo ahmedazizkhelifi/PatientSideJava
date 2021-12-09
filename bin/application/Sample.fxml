@@ -13,176 +13,448 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="757.0" prefWidth="1175.0" style="-fx-image: &quot;C:\Users\MSI\Documents\My documents\School\3rd Sem\TP JAVA\Projet\wireframe.png&quot;;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <AnchorPane layoutX="-1.0" prefHeight="152.0" prefWidth="346.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutY="70.0" prefHeight="690.0" prefWidth="346.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
-            <ImageView fitHeight="105.0" fitWidth="89.0" layoutX="113.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-               <image>
-                  <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="56.0" fitWidth="46.0" layoutX="22.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="btn-img">
-               <image>
-                  <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-               </image>
-            </ImageView>
+            <VBox fx:id="vbSideBar1" prefHeight="690.0" prefWidth="69.0" style="-fx-background-color: #41519D;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnAcceuil1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="346.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_home_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnPatients1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="346.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_cast_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnConsultations1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_magazine_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnRV1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_meeting_time_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnSecretaires1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_nurse_male_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnAgenda1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_calendar_14_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnCompta1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_money_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnParam1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_settings_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="vbSideBar" prefHeight="690.0" prefWidth="346.0" style="-fx-background-color: #41519D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnAcceuil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="346.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Acceuil" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_home_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnPatients" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="346.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Patients" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_cast_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnConsultations" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Consultations" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_magazine_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnRV" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Rendez-vous" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_meeting_time_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnSecretaires" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Secretaires" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_nurse_male_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnAgenda" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Agenda" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_calendar_14_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnCompta" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Comptabilité" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_money_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnParam" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="  Paramètres" textAlignment="CENTER" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
+                           <image>
+                              <Image url="@../../src/assets/icons/icons8_settings_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
-      <VBox layoutY="152.0" prefHeight="611.0" prefWidth="346.0" style="-fx-background-color: #2646A6;" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="152.0">
-         <children>
-            <Button fx:id="btnPatients" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="0.0" prefWidth="346.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Patients">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button fx:id="btnConsultations" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="55.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Consultations">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="55.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Rendez-vous">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="55.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Secretaires">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="55.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Agenda">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="55.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Comptabilité">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="55.0" prefWidth="359.0" styleClass="side-bar-btn" stylesheets="@application.css" text="Paramètres">
-               <graphic>
-                  <ImageView fitHeight="56.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="btn-img">
-                     <image>
-                        <Image url="@../../../../Documents/My%20documents/School/Clubs/GDSC/Departments/Web/3.%20Repports/01.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Monospaced Regular" size="16.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-         </children>
-      </VBox>
-      <AnchorPane layoutX="345.0" prefHeight="34.0" prefWidth="831.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="809.0" layoutY="12.0" text="X" />
-         </children>
-      </AnchorPane>
-      <TabPane fx:id="tabsMedecin" layoutX="345.0" layoutY="34.0" prefHeight="723.0" prefWidth="831.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="345.0" AnchorPane.topAnchor="34.0">
-        <tabs>
-          <Tab fx:id="tabPatients" text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <TabPane fx:id="tabsMedecin" layoutX="345.0" layoutY="41.0" prefHeight="716.0" prefWidth="830.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+         <tabs>
+            <Tab fx:id="tabAcceuil" text="Acceuil">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="687.0" prefWidth="1195.0" style="-fx-background-color: red;">
                      <children>
-                        <Label fx:id="lbl1" layoutX="241.0" layoutY="131.0" text="Label" />
+                        <Label layoutX="192.0" layoutY="136.0" text="Acceuil" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-500.0" AnchorPane.topAnchor="1.0" />
                      </children>
                   </AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="tabConsultations" text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              </content>
+            </Tab>
+            <Tab fx:id="tabPatients" text="Patients">
+               <content>
+                  <AnchorPane prefHeight="687.0" prefWidth="941.0">
+                     <children>
+                        <Label layoutX="104.0" layoutY="100.0" text="Patients" />
+                        <Label fx:id="lbl1" layoutX="340.0" layoutY="92.0" text="Patients" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabConsultations" text="Consultations">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Label fx:id="lbl2" layoutX="321.0" layoutY="140.0" text="Label" />
+                        <Label layoutX="55.0" layoutY="48.0" text="consultations" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
                      </children>
                   </AnchorPane>
-            </content>
-          </Tab>
-        </tabs>
+               </content>
+            </Tab>
+            <Tab fx:id="tabRV" text="RV">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="146.0" layoutY="274.0" text="rv" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabSecretaires" text="Secretaires">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="121.0" layoutY="230.0" text="secretakire" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabAgenda" text="Agenda">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="80.0" layoutY="195.0" text="agenda" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabCompta" text="Compta">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="170.0" layoutY="268.0" text="compta" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabParams" text="Params">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="103.0" layoutY="185.0" text="params" />
+                        <AnchorPane prefHeight="3.0" prefWidth="816.0" style="-fx-background-color: #BEC4E4;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
       </TabPane>
+      <AnchorPane prefHeight="70.0" prefWidth="346.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="241.0" layoutX="77.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="btn-img">
+               <image>
+                  <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/patienSide.PNG" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnHideSideBar" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="44.0" prefWidth="48.0">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="28.0" onMouseClicked="#handleClicks" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@../../src/assets/icons/icons8_menu_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="345.0" layoutY="4.0" prefHeight="70.0" prefWidth="830.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="809.0" layoutY="12.0" text="X" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0" />
+            <Label layoutX="28.0" layoutY="18.0" prefHeight="23.0" prefWidth="135.0" text="PatientSide/">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblWhere" layoutX="159.0" layoutY="18.0" prefHeight="23.0" prefWidth="323.0" text="Acceuil">
+               <font>
+                  <Font name="Monospaced Regular" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
