@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent; 
@@ -7,15 +8,34 @@ import javafx.fxml.Initializable;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.scene.control.TabPane;
-
+import application.Main;
 
 
 public class SampleController implements Initializable {
+	
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
+	
+	public void logOut(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		System.out.println(stage);
+		stage.show();
+	}
 
     @FXML
     private Button btnAcceuil;
@@ -144,9 +164,12 @@ public class SampleController implements Initializable {
 		case 7:
 			lblWhere.setText("Paramètres");
 			tabsMedecin.getSelectionModel().select(tabParam);
+			
 			break;
 		}
 	}
+	
+
 	
 	 @FXML
 	private void handleClicks (ActionEvent event) {

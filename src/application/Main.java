@@ -10,16 +10,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TabPane;
 
 public class Main extends Application {
+	
+	public Stage window;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Medecin.fxml"));
-			Scene scene = new Scene(root,1175,767);
-			scene.getStylesheets().add(getClass().getResource("Medecin.css").toExternalForm());
-			System.out.print(root.getChildren().get(2));//723
-			primaryStage.setTitle("Médecin | PatientSIDE");
+			window = primaryStage;
+			// Login scene
+			AnchorPane loginRoot= (AnchorPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Scene loginScene = new Scene(loginRoot ,1018,604);
+			loginScene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
+			primaryStage.setTitle("PatientSIDE");
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
-			primaryStage.setScene(scene);
+			primaryStage.setScene(loginScene);
+
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

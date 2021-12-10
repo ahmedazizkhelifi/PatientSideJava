@@ -1,0 +1,26 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.inWhite-btn {
+  -fx-background-color: #41519d;
+  -fx-cursor: hand;
+}
+
+.inWhite-btn:hover {
+  -fx-background-color: #3e4d96;
+}
+
+.inWhite-btn:pressed {
+  -fx-background-color: #c5ced9;
+}
+
+.inBlue-btn {
+  -fx-background-color: #e4eaf2;
+}
+
+.inBlue-btn:hover {
+  -fx-background-color: #c5ced9;
+}
+
+.inBlue-btn:pressed {
+  -fx-background-color: #4886d9;
+}

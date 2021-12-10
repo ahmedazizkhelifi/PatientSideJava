@@ -348,6 +348,7 @@
                   <Font name="Monospaced Regular" size="18.0" />
                </font>
             </Label>
+            <Button fx:id="btnLogout" layoutX="473.0" layoutY="25.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" text="Button" />
          </children>
       </AnchorPane>
    </children>
