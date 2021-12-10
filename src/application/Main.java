@@ -13,14 +13,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Medecin.fxml"));
 			Scene scene = new Scene(root,1175,767);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("Medecin.css").toExternalForm());
 			System.out.print(root.getChildren().get(2));//723
-			//TabPane tabs = (TabPane) root.getChildren().get(2);
-			//tabs.setMinHeight(757);
-			//System.out.println(tabs.getMinHeight());
-			primaryStage.setTitle("Title");
+			primaryStage.setTitle("Médecin | PatientSIDE");
 			//primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(scene);
 			primaryStage.show();

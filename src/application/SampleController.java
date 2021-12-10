@@ -5,109 +5,104 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent; 
 import javafx.fxml.Initializable;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.VBox;
 import javafx.scene.control.TabPane;
-import javafx.scene.image.ImageView;
+
 
 
 public class SampleController implements Initializable {
 
-	  @FXML
-	    private Button btnAcceuil;
+    @FXML
+    private Button btnAcceuil;
 
-	    @FXML
-	    private Button btnAcceuil1;
+    @FXML
+    private Button btnAcceuil1;
 
-	    @FXML
-	    private Button btnAgenda;
+    @FXML
+    private Button btnAgenda;
 
-	    @FXML
-	    private Button btnAgenda1;
+    @FXML
+    private Button btnAgenda1;
 
-	    @FXML
-	    private Button btnCompta;
+    @FXML
+    private Button btnCompta;
 
-	    @FXML
-	    private Button btnCompta1;
+    @FXML
+    private Button btnCompta1;
 
-	    @FXML
-	    private Button btnConsultations;
+    @FXML
+    private Button btnConsultations;
 
-	    @FXML
-	    private Button btnConsultations1;
+    @FXML
+    private Button btnConsultations1;
 
-	    @FXML
-	    private Button btnHideSideBar;
+    @FXML
+    private Button btnHide;
 
-	    @FXML
-	    private Button btnParam;
+    @FXML
+    private Button btnParam;
 
-	    @FXML
-	    private Button btnParam1;
+    @FXML
+    private Button btnParam1;
 
-	    @FXML
-	    private Button btnPatients;
+    @FXML
+    private Button btnPatients;
 
-	    @FXML
-	    private Button btnPatients1;
+    @FXML
+    private Button btnPatients1;
 
-	    @FXML
-	    private Button btnRV;
+    @FXML
+    private Button btnRV;
 
-	    @FXML
-	    private Button btnRV1;
+    @FXML
+    private Button btnRV1;
 
-	    @FXML
-	    private Button btnSecretaires;
+    @FXML
+    private Button btnSecretaire;
 
-	    @FXML
-	    private Button btnSecretaires1;
+    @FXML
+    private Button btnSecretaires1;
 
-	    @FXML
-	    private Label lbl1;
+    @FXML
+    private Label lblWhere;
 
-	    @FXML
-	    private Label lbl2;
+    @FXML
+    private Tab tabAcceuil;
 
-	    @FXML
-	    private Label lblWhere;
+    @FXML
+    private Tab tabAgenda;
 
-	    @FXML
-	    private Tab tabAcceuil;
+    @FXML
+    private Tab tabCompta;
 
-	    @FXML
-	    private Tab tabAgenda;
+    @FXML
+    private Tab tabConsultations;
 
-	    @FXML
-	    private Tab tabCompta;
+    @FXML
+    private Tab tabParam;
 
-	    @FXML
-	    private Tab tabConsultations;
+    @FXML
+    private Tab tabPatients;
 
-	    @FXML
-	    private Tab tabParams;
+    @FXML
+    private Tab tabRV;
 
-	    @FXML
-	    private Tab tabPatients;
+    @FXML
+    private Tab tabSec;
+    
+    @FXML
+    private TabPane tabsMedecin;
 
-	    @FXML
-	    private Tab tabRV;
+    @FXML
+    private VBox vbSB;
 
-	    @FXML
-	    private Tab tabSecretaires;
-
-	    @FXML
-	    private TabPane tabsMedecin;
-
-	    @FXML
-	    private VBox vbSideBar;
-
-	    @FXML
-	    private VBox vbSideBar1;
+    @FXML
+    private VBox vbSB1;
 
 	    
 	@Override
@@ -136,7 +131,7 @@ public class SampleController implements Initializable {
 			break;
 		case 4:
 			lblWhere.setText("Secretaires");
-			tabsMedecin.getSelectionModel().select(tabSecretaires);
+			tabsMedecin.getSelectionModel().select(tabSec);
 			break;
 		case 5:
 			lblWhere.setText("Agenda");
@@ -148,7 +143,7 @@ public class SampleController implements Initializable {
 			break;
 		case 7:
 			lblWhere.setText("Paramètres");
-			tabsMedecin.getSelectionModel().select(tabParams);
+			tabsMedecin.getSelectionModel().select(tabParam);
 			break;
 		}
 	}
@@ -156,51 +151,51 @@ public class SampleController implements Initializable {
 	 @FXML
 	private void handleClicks (ActionEvent event) {
 		event.consume();
-		if (event.getSource() == btnAcceuil) {
+		if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
 			where(0);
 		}
 		
-		if (event.getSource() == btnPatients) {
+		if (event.getSource() == btnPatients || event.getSource() == btnPatients1) {
 			where(1);
-			lbl1.setText("Donee");	
+			
 		}
 		
-		if (event.getSource() == btnConsultations) {
+		if (event.getSource() == btnConsultations || event.getSource() == btnConsultations1) {
 			where(2);
-			lbl2.setText("Donee");	
+			
 		}
 		
-		if (event.getSource() == btnRV) {
+		if (event.getSource() == btnRV || event.getSource() == btnRV1) {
 			where(3);
 		}
 		
-		if (event.getSource() == btnSecretaires) {
+		if (event.getSource() == btnSecretaire || event.getSource() == btnSecretaires1) {
 			where(4);
 		}
-		if (event.getSource() == btnAgenda) {
+		if (event.getSource() == btnAgenda || event.getSource() == btnAgenda1) {
 			where(5);
 		}
-		if (event.getSource() == btnCompta) {
+		if (event.getSource() == btnCompta || event.getSource() == btnCompta1) {
 			where(6);
 		}
-		if (event.getSource() == btnParam) {
+		if (event.getSource() == btnParam || event.getSource() == btnParam1) {
 			where(7);
 		}
-		if (event.getSource() == btnHideSideBar) {
+		if (event.getSource() == btnHide) {
 			System.out.println("mmm");
-			if(vbSideBar.isVisible()) {
-				vbSideBar.setVisible(false);
-				tabsMedecin.setTranslateX(-275);
+			if(vbSB.isVisible()) {
+				vbSB.setVisible(false);
+				tabsMedecin.setTranslateX(-265);
 				//tabsMedecin.setPrefWidth(1105);
 				System.out.println(tabsMedecin.getPrefWidth());
 				System.out.println(tabsMedecin.getMaxWidth());
 				
-				vbSideBar1.setVisible(true);
+				vbSB1.setVisible(true);
 			}
 			else {
-				vbSideBar.setVisible(true);
+				vbSB.setVisible(true);
 				tabsMedecin.setTranslateX(1);
-				vbSideBar1.setVisible(false);
+				vbSB1.setVisible(false);
 			}
 			
 			
