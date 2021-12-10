@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1311.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <children>
+      <AnchorPane layoutX="36.0" layoutY="81.0" prefHeight="676.0" prefWidth="336.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="81.0">
+         <children>
+            <VBox fx:id="vbSB1" prefHeight="676.0" prefWidth="70.0" style="-fx-background-color: #41519D;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnAcceuil1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_home_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnPatients1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_cast_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnConsultations1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_magazine_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRV1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_meeting_time_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnSecretaires1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_nurse_male_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnAgenda1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_calendar_14_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnCompta1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_money_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnParam1" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_settings_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="vbSB" prefHeight="697.0" prefWidth="336.0" style="-fx-background-color: #41519D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btnAcceuil" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Acceuil" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_home_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnPatients" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Patients" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_cast_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnConsultations" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Consultations" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_magazine_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnRV" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Rendez-vous" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_meeting_time_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnSecretaire" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Secretaires" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_nurse_male_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnAgenda" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Agenda" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_calendar_14_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnCompta" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Comptabilité" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_money_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnParam" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="   Paramètres" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="43.0">
+                           <image>
+                              <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_settings_96px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="50.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <TabPane fx:id="tabsMedecin" layoutX="336.0" layoutY="52.0" prefHeight="704.0" prefWidth="975.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+        <tabs>
+          <Tab fx:id="tabAcceuil" text="Acceuil">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabPatients" text="Patients">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabConsultations" text="Consultations">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabRV" text="Rendez-vous">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabSec" text="Secretaires">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabAgenda" text="Agenda">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabCompta" text="Comptabilité">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabParam" text="Paramètres">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane layoutX="6.0" prefHeight="82.0" prefWidth="336.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnHide" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="17.0" prefWidth="29.0" style="-fx-background-color: white; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="34.0">
+                     <image>
+                        <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_menu_96px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fitHeight="45.0" fitWidth="239.0" layoutX="77.0" layoutY="21.0">
+               <image>
+                  <Image url="@../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/patienSide.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="336.0" prefHeight="82.0" prefWidth="977.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="944.0" layoutY="14.0" prefHeight="23.0" prefWidth="19.0" text="X" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+            <Label layoutX="14.0" layoutY="51.0" text="PatientSide/Médecin/">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblWhere" layoutX="231.0" layoutY="51.0" prefHeight="23.0" prefWidth="708.0" text="Acceuil">
+               <font>
+                  <Font name="Monospaced Regular" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnLogout" layoutX="473.0" layoutY="25.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" text="Button" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
