@@ -175,8 +175,51 @@ public class LoginController implements Initializable {
 	
 	
 	 @FXML
-		private void signUp (ActionEvent event) throws IOException, SQLException {
+		private boolean signUp (ActionEvent event) throws IOException, SQLException {
 			event.consume();
+			reqName.setVisible(false);
+			reqBD.setVisible(false);
+			reqAdress.setVisible(false);
+			reqTel.setVisible(false);
+			//reqRadio.setVisible(false);
+			reqUsername1.setVisible(false);
+			reqUsername2.setVisible(false);
+			if (tfNom.getText().strip() == "") {
+				reqName.setVisible(true);
+				return false;
+			}
+			
+			if (tfPrenom.getText().strip() == "") {
+				reqName.setVisible(true);
+				return false;
+			}
+			
+			if (tfBd.getValue() == null) {
+				reqBD.setVisible(true);
+				return false;
+			}
+			
+			if (tfAdress.getText().strip() == "") {
+				reqAdress.setVisible(true);
+				return false;
+			}
+			
+			// verif tel
+			if (tfTel.getText().strip() == "") {
+				reqTel.setVisible(true);
+				return false;
+			}
+			
+			if (tfUsername1.getText().strip() == "") {
+				reqUsername1.setVisible(true);
+				return false;
+			}
+			
+			if (tfPw1.getText().strip() == "") {
+				reqUsername2.setVisible(true);
+				return false;
+			}
+			
 			//System.out.println("p");
 			RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();
 			String sexe = selectedRadioButton.getText();
@@ -189,7 +232,11 @@ public class LoginController implements Initializable {
 				System.out.println("nope");
 			//Patient p = new Patient("az","az", new Date(12,12,1999), "lkj", "H", "mlkmlk");
 			//(String nom, String prenon, Date date_ness, String telf, String sexe,String adresse)
-			}
+			
+			// switch to login
+			where(0);
+			return true;
+	 }
 		
 	
 	 @FXML
