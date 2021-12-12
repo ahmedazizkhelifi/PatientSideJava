@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <TabPane fx:id="tabs" layoutY="2.0" prefHeight="604.0" prefWidth="1018.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabLogin" text="Login">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutY="7.0" prefHeight="574.0" prefWidth="381.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="54.0" fitWidth="287.0" layoutX="47.0" layoutY="60.0">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/patienSide.PNG" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="btnGo2" layoutX="77.0" layoutY="406.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="65.0" prefWidth="228.0" styleClass="inWhite-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="S'inscrire" textFill="WHITE">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="183.0" prefHeight="93.0" prefWidth="303.0" text="PatientSIDE vous permet de prendre des rendez-vous en ligne, de consulter l'historique de vos consultations ..." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="326.0" prefHeight="52.0" prefWidth="303.0" text="Si vous n'avez pas de compte, veuillez vous inscrire." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Monospaced Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="509.0" layoutY="1.0" prefHeight="574.0" prefWidth="638.0" style="-fx-background-color: #41519D;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Label layoutX="193.0" layoutY="69.0" text="Connectez-vous" textFill="#e4eaf2">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfUsername" layoutX="150.0" layoutY="159.0" prefHeight="25.0" prefWidth="364.0" promptText="Nom d'utilisateur">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </TextField>
+                              <PasswordField fx:id="tfPassword" layoutX="150.0" layoutY="228.0" prefHeight="25.0" prefWidth="364.0" promptText="Mot de passe">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </PasswordField>
+                              <Button fx:id="btnLogin" layoutX="218.0" layoutY="402.0" mnemonicParsing="false" onAction="#Login" prefHeight="65.0" prefWidth="228.0" styleClass="inBlue-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="Se connecter">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label alignment="TOP_CENTER" layoutX="181.0" layoutY="287.0" prefHeight="25.0" prefWidth="303.0" text="Mot de passe oublié" textAlignment="CENTER" textFill="#e4eaf2" wrapText="true">
+                                 <font>
+                                    <Font name="Monospaced Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="reqUsername" fitHeight="34.0" fitWidth="34.0" layoutX="520.0" layoutY="159.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_2.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqPw" fitHeight="34.0" fitWidth="34.0" layoutX="519.0" layoutY="228.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_2.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabSignup" text="Signup">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="-2.0" prefHeight="574.0" prefWidth="383.0" style="-fx-background-color: #41519D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="78.0" prefWidth="380.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <ImageView fitHeight="54.0" fitWidth="287.0" layoutX="40.0" layoutY="12.0">
+                                       <image>
+                                          <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/patienSide.PNG" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="btnTo1" layoutX="76.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="65.0" prefWidth="228.0" styleClass="inBlue-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="Se connecter">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label alignment="TOP_CENTER" layoutX="49.0" layoutY="243.0" prefHeight="93.0" prefWidth="303.0" text="PatientSIDE vous permet de prendre des rendez-vous en ligne, de consulter l'historique de vos consultations ..." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="509.0" layoutY="1.0" prefHeight="574.0" prefWidth="638.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Label layoutX="220.0" layoutY="36.0" text="Inscription">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfAdress" layoutX="137.0" layoutY="190.0" prefHeight="25.0" prefWidth="364.0" promptText="Adresse">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </TextField>
+                              <PasswordField fx:id="tfPw1" layoutX="138.0" layoutY="384.0" prefHeight="25.0" prefWidth="364.0" promptText="Mot de passe">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </PasswordField>
+                              <TextField fx:id="tfName" layoutX="137.0" layoutY="92.0" prefHeight="25.0" prefWidth="364.0" promptText="Nom et Prénom">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </TextField>
+                              <DatePicker fx:id="tfBd" layoutX="137.0" layoutY="144.0" prefHeight="35.0" prefWidth="364.0" promptText="Date de naissance" />
+                              <TextField fx:id="tfUsername1" layoutX="137.0" layoutY="338.0" prefHeight="25.0" prefWidth="364.0" promptText="Nom d'utilisateur">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="tfTel" layoutX="137.0" layoutY="237.0" prefHeight="25.0" prefWidth="364.0" promptText="Tél">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </TextField>
+                              <RadioButton fx:id="rbH" layoutX="191.0" layoutY="293.0" mnemonicParsing="false" text="Homme">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="17.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton fx:id="rbF" layoutX="377.0" layoutY="293.0" mnemonicParsing="false" text="Femme">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="17.0" />
+                                 </font>
+                              </RadioButton>
+                              <Button fx:id="btnSigin" layoutX="205.0" layoutY="441.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="228.0" styleClass="inWhite-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="S'inscrire" textFill="WHITE">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="reqName" fitHeight="34.0" fitWidth="34.0" layoutX="508.0" layoutY="93.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqBD" fitHeight="34.0" fitWidth="34.0" layoutX="506.0" layoutY="144.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqAdress" fitHeight="34.0" fitWidth="34.0" layoutX="507.0" layoutY="191.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqTel" fitHeight="34.0" fitWidth="34.0" layoutX="506.0" layoutY="238.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqRadio" fitHeight="34.0" fitWidth="34.0" layoutX="508.0" layoutY="288.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqUsername1" fitHeight="34.0" fitWidth="34.0" layoutX="508.0" layoutY="339.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="reqUsername2" fitHeight="34.0" fitWidth="34.0" layoutX="507.0" layoutY="391.0" visible="false">
+                                 <image>
+                                    <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <AnchorPane layoutY="-1.0" prefHeight="34.0" prefWidth="1018.0" style="-fx-background-color: #c5ced9;">
+         <children>
+            <AnchorPane layoutY="32.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Button fx:id="btnClose" layoutX="980.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="17.0" prefWidth="15.0" style="-fx-background-color: #c5ced9; -fx-cursor: hand;">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="18.0">
+                     <image>
+                        <Image url="@../../../../../AppData/Local/Temp/icons8_delete_48px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="25.0" layoutY="5.0" text="PatientSIDE">
+               <font>
+                  <Font name="Monospaced Regular" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package application;
+package controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +22,7 @@ import javafx.scene.control.TabPane;
 import application.Main;
 
 
-public class SampleController implements Initializable {
+public class MedecinController implements Initializable {
 	
 	private Stage stage;
 	private Scene scene;

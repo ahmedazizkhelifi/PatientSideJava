@@ -18,11 +18,11 @@ public class Main extends Application {
 		try {
 			window = primaryStage;
 			// Login scene
-			AnchorPane loginRoot= (AnchorPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
+			AnchorPane loginRoot= (AnchorPane)FXMLLoader.load(getClass().getResource("/fxmls/Login/Login.fxml"));
 			Scene loginScene = new Scene(loginRoot ,1018,604);
-			loginScene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
+			loginScene.getStylesheets().add(getClass().getResource("/fxmls/Login/Login.css").toExternalForm());
 			primaryStage.setTitle("PatientSIDE");
-			//  primaryStage.initStyle(StageStyle.UNDECORATED);
+			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(loginScene);
 
 			primaryStage.show();
