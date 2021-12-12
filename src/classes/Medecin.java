@@ -13,8 +13,8 @@ import java.sql.Statement;
 public class Medecin extends Personne{
 	private String specialite;
 	
-	Medecin(int id, String nom, String prenon, Date date_ness, String telf, String sexe,String specialite) {
-		super(id, nom, prenon, date_ness, telf, sexe);
+	Medecin(int id, String nom, String prenon, Date date_ness, String telf, String sexe, String adresse, String specialite) {
+		super(id, nom, prenon, date_ness, telf, sexe, adresse);
 		this.specialite=specialite;
 	
 	}

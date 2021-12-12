@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Users {
 	
 		private String salt = "PatientSIDE";
-		private Connection conn = Mysqlconnector.getConnection();
+		private static Connection conn = Mysqlconnector.getConnection();
 		
 		private static int lastId;
 		private int userId = -1;
@@ -71,6 +71,90 @@ public class Users {
 			return this.userId;
 		}
 	
+		public boolean signUp(Patient p) throws SQLException{
+			// verifier si username exist
+	
+			if (usernameExist()) {
+				System.out.println("user exist");
+				return false;
+			}
+			// create patient
+			createPatient(p);	
+			int maxId = getMaxPatientId();
+			// create user
+			createUserPatient(maxId);
+
+			return true;
+			
+		 }
+		
+		public boolean usernameExist() throws SQLException {
+			String query = "SELECT count(username) FROM users WHERE username= ?";
+			PreparedStatement statement = conn.prepareStatement(query);
+			statement.setString(1, this.username);
+			ResultSet resultat = statement.executeQuery();
+			if (resultat.next()) {
+				System.out.println(resultat.getInt(1));
+				if(resultat.getInt(1) == 0)
+					return false;
+				else
+					return true;
+			}
+			return false;
+		}
+		
+		public static int getMaxPatientId() throws SQLException {
+			String query = "SELECT max(id) FROM patient";
+			PreparedStatement statement = conn.prepareStatement(query);
+			ResultSet resultat = statement.executeQuery();
+			if (resultat.next())
+				return resultat.getInt(1);
+			return -1;
+		}
+		
+		public static void createPatient(Patient p) throws SQLException{
+			
+			String query = "INSERT INTO Patient (nom, prenom, date_ness, telf, sexe, adresse) VALUES (?, ?, ?, ?, ?, ?)";
+			PreparedStatement statement = conn.prepareStatement(query);
+			 statement.setString(1, p.getNom());
+			   statement.setString(2, p.getPrenom());
+			   statement.setDate(3, p.getDate_ness());
+			   statement.setString(4, p.getTelf());
+			   statement.setString(5,p.getSexe());
+			   statement.setString(6, p.getAdresse());
+			   int rowsInserted = statement.executeUpdate();
+			   if (rowsInserted > 0) {
+				   System.out.println("A new row was inserted successfully!");
+				   System.out.println(rowsInserted);
+			       System.out.println("A new row was inserted successfully!");
+			   }
+			
+		}
+
+		public void createUserPatient(int id_role) throws SQLException{
+			
+			String query = "INSERT INTO users (username, password, id_role) VALUES (?,?,?)";
+			PreparedStatement statement = conn.prepareStatement(query);
+			 statement.setString(1, this.username);
+			 statement.setString(2, getSecurePassword(this.getPassword(), this.getSalt()) );
+			 statement.setInt(3, id_role);
+			 
+			   int rowsInserted = statement.executeUpdate();
+			   if (rowsInserted > 0) {
+				   System.out.println("A new row was inserted successfully!");
+				   System.out.println(rowsInserted);
+			       System.out.println("A new row was inserted successfully!");
+			   }
+			
+		}
+
+		
+		
+		public static void createUser() throws SQLException{
+			String query = "INSERT INTO users (username, password, id_role) VALUES (?, ?, ?, ?, ?, ?)";
+			PreparedStatement statement = conn.prepareStatement(query);
+			
+		}
 		
 		public boolean login() throws SQLException {
 			String _hashedPw = getSecurePassword(this.getPassword(), this.getSalt());

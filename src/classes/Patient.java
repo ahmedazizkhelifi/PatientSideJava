@@ -9,13 +9,17 @@ import java.sql.Statement;
 
 public class Patient extends Personne{
     
-	private String adresse_mail;
+
 	
-	Patient(int id, String nom, String prenon, Date date_ness, String telf, String sexe,String adresse_mail) {
-			super(id, nom, prenon, date_ness, telf, sexe);
-			this.adresse_mail=adresse_mail;
+	public Patient(int id, String nom, String prenon, Date date_ness, String telf, String sexe,String adresse) {
+			super(id, nom, prenon, date_ness, telf, sexe, adresse);
+			
     }
 	
+	public Patient(String nom, String prenon, Date date_ness, String telf, String sexe,String adresse) {
+		super(nom, prenon, date_ness, telf, sexe, adresse);
+		
+}
 	
 	
 	 //*************************************************************************
@@ -66,7 +70,7 @@ public class Patient extends Personne{
 		       String nom = result.getString(3);
 		       String prenom = result.getString("fullname");
 		       Date date_ness= result.getDate("", null);
-		       String email = result.getString("email");
+		       //String email = result.getString("email");
 	
 		   }   
 
@@ -78,17 +82,17 @@ public class Patient extends Personne{
     public void demander_RDV(){
 
     }
-	public String getAdresse_mail() {
-		return adresse_mail;
-	}
-	public void setAdresse_mail(String adresse_mail) {
-		this.adresse_mail = adresse_mail;
-	}
-
-
+    
 
 	public Patient getPatient(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public String toString() {
+		return "";
+	}
+
+
+
 }

@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent; 
@@ -24,10 +25,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import application.Main;
 import application.SampleController;
 import classes.Users;
+import classes.Patient;
+import java.sql.Date;
 
 
 public class LoginController implements Initializable {
@@ -50,6 +54,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private RadioButton rbF;
+    
 
     @FXML
     private RadioButton rbH;
@@ -116,11 +121,18 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField tfUsername1;
+
+    ToggleGroup toggleGroup = new ToggleGroup();
+
+    
+    
+
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		rbH.setToggleGroup(toggleGroup);
+		rbF.setToggleGroup(toggleGroup);
 	}
 	
 	
@@ -159,6 +171,26 @@ public class LoginController implements Initializable {
 	    stage.setScene(scene);
 		 */
 	}
+	
+	
+	
+	 @FXML
+		private void signUp (ActionEvent event) throws IOException, SQLException {
+			event.consume();
+			//System.out.println("p");
+			RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();
+			String sexe = selectedRadioButton.getText();
+			Patient p = new Patient(tfNom.getText(),tfPrenom.getText(), Date.valueOf(tfBd.getValue()), tfTel.getText(), sexe, tfAdress.getText());
+			Users u = new Users(tfUsername1.getText(), tfPw1.getText());
+			
+			if (u.signUp(p)) 
+				System.out.println("done");
+			else
+				System.out.println("nope");
+			//Patient p = new Patient("az","az", new Date(12,12,1999), "lkj", "H", "mlkmlk");
+			//(String nom, String prenon, Date date_ness, String telf, String sexe,String adresse)
+			}
+		
 	
 	 @FXML
 	private boolean Login (ActionEvent event) throws IOException, SQLException {
