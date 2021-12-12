@@ -11,7 +11,7 @@ public class Patient extends Personne{
     
 	private String adresse_mail;
 	
-	Patient(int id, String nom, String prenon, Date date_ness, int telf, String sexe) {
+	Patient(int id, String nom, String prenon, Date date_ness, int telf, String sexe,String adresse_mail) {
 			super(id, nom, prenon, date_ness, telf, sexe);
 			this.adresse_mail=adresse_mail;
     }
@@ -38,19 +38,7 @@ public class Patient extends Personne{
 		       System.out.println("A new row was inserted successfully!");
 		   }
 	 }
-	 //*************************************************************************
-	 // methode read_patient(lister le ptients )
-	 //*************************************************************************
-	 public void read_patient(Connection conn) throws SQLException {
-		 String sql = ".....";
-		 
-		 Statement statement = conn.createStatement();
-		 ResultSet result = statement.executeQuery(sql);
-		 int count = 0;
-		 while (result.next()){
-		     var name = result.getString(1);
-		 }
-	 }
+	
 	 //*************************************************************************
 	 //methode UPDATE ( modification des des donnees personnels du patient )
 	 //*************************************************************************
@@ -95,5 +83,12 @@ public class Patient extends Personne{
 	}
 	public void setAdresse_mail(String adresse_mail) {
 		this.adresse_mail = adresse_mail;
+	}
+
+
+
+	public Patient getPatient(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
