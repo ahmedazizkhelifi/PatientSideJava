@@ -31,6 +31,7 @@ import application.Main;
 import application.SampleController;
 import classes.Users;
 import classes.Patient;
+import classes.CurrentUserData;
 import java.sql.Date;
 
 
@@ -149,9 +150,23 @@ public class LoginController implements Initializable {
 		
 	}
 	
-	public void Medecin (ActionEvent event) throws IOException {
-		
+	public void medecinStage (ActionEvent event, int id) throws IOException {
+		CurrentUserData.change(id);
 		URL url =getClass().getResource("../fxmls/Medecin/Medecin.fxml");
+		root = FXMLLoader.load(url);
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		
+		System.out.println("what" + CurrentUserData.getRoleId());
+		stage.setUserData("lkjlkj");
+		stage.show();
+
+	}
+	
+	public void patientStage (ActionEvent event, int id) throws IOException {
+		CurrentUserData.change(id);
+		URL url =getClass().getResource("../fxmls/Patient/Patient.fxml");
 		root = FXMLLoader.load(url);
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
@@ -184,6 +199,8 @@ public class LoginController implements Initializable {
 			//reqRadio.setVisible(false);
 			reqUsername1.setVisible(false);
 			reqUsername2.setVisible(false);
+			
+			// add verifs
 			if (tfNom.getText().strip() == "") {
 				reqName.setVisible(true);
 				return false;
@@ -244,7 +261,7 @@ public class LoginController implements Initializable {
 		event.consume();
 		reqUsername.setVisible(false);
 		reqPw.setVisible(false);
-		// error msg visible
+		// error msg visible !!!!!!!!!!!!!!!!!!!!!!
 		if (tfUsername.getText().strip() == "") {
 			reqUsername.setVisible(true);
 			return false;
@@ -257,11 +274,17 @@ public class LoginController implements Initializable {
 		// check db if username !exite or mdp ghalet >> msgerror visible = true
 		// if user exist: check role
 		Users user = new Users(tfUsername.getText().strip(), tfPassword.getText().strip());
-		user.login();
+		if(!user.login())
+			return false;
 		System.out.println(user.getRole());
 		
 		if (user.getRole() == 0 ) { // medecin
-			Medecin(event);
+			medecinStage(event, user.getPersonId());
+		} else if (user.getRole() == 1) {
+			// secretaire
+		}
+			else { // 2
+				patientStage(event, user.getPersonId());
 		}
 		return false;
 	}

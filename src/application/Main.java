@@ -22,7 +22,7 @@ public class Main extends Application {
 			Scene loginScene = new Scene(loginRoot ,1018,604);
 			loginScene.getStylesheets().add(getClass().getResource("/fxmls/Login/Login.css").toExternalForm());
 			primaryStage.setTitle("PatientSIDE");
-			primaryStage.initStyle(StageStyle.UNDECORATED);
+			//primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.setScene(loginScene);
 
 			primaryStage.show();

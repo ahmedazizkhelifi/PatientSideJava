@@ -157,6 +157,12 @@ public class Users {
 		}
 		
 		public boolean login() throws SQLException {
+			if (!usernameExist()) {
+				System.out.println("not exist");
+				return false;
+			}else {
+				System.out.println("exist");
+			}
 			String _hashedPw = getSecurePassword(this.getPassword(), this.getSalt());
 			//System.out.println("_hashedPw= " + _hashedPw);
 			String query = "SELECT * FROM users WHERE username = ? and password = ?";//WHERE username = ? and password = ?";

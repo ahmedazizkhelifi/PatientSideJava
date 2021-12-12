@@ -1,9 +1,13 @@
 package controllers;
 
+import classes.CurrentUserData;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent; 
+import java.util.stream.IntStream;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 
 import javafx.event.ActionEvent;
@@ -30,8 +34,7 @@ public class MedecinController implements Initializable {
 	
 	
 	public void logOut(ActionEvent event) throws IOException {
-		receiveData(event);
-		root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+		root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -39,16 +42,7 @@ public class MedecinController implements Initializable {
 		stage.show();
 	}
 
-	@FXML
-	private void receiveData(ActionEvent event) {
-	  // Step 1
-	  Node node = (Node) event.getSource();
-	  Stage stage = (Stage) node.getScene().getWindow();
-	  // Step 2
-	  String str = (String) stage.getUserData();
-	  // Step 3
-	  System.out.println("str" + str);
-	}
+	
 	
     @FXML
     private Button btnAcceuil;
@@ -139,12 +133,25 @@ public class MedecinController implements Initializable {
 
     
     
-    
+    @FXML
+	private void receiveData(ActionEvent event) {
+		System.out.println(event.getSource());
+	  // Step 1
+	  Node node = (Node) event.getSource();
+	  Stage stage = (Stage) node.getScene().getWindow();
+	  // Step 2
+	  String str = (String) stage.getUserData();
+	  // Step 3
+	  System.out.println("str" + str);
+	}
 	    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
 		
+		System.out.println("Med Id:" +CurrentUserData.getRoleId());
+        System.out.println("???");
+	
 	}
 	
 	private void where(int here) {
@@ -191,6 +198,7 @@ public class MedecinController implements Initializable {
 	private void handleClicks (ActionEvent event) {
 		event.consume();
 		if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
+			receiveData(event);
 			where(0);
 		}
 		
