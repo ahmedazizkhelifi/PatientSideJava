@@ -11,7 +11,7 @@ public class Patient extends Personne{
     
 	private String adresse_mail;
 	
-	Patient(int id, String nom, String prenon, Date date_ness, int telf, String sexe,String adresse_mail) {
+	Patient(int id, String nom, String prenon, Date date_ness, String telf, String sexe,String adresse_mail) {
 			super(id, nom, prenon, date_ness, telf, sexe);
 			this.adresse_mail=adresse_mail;
     }
@@ -22,7 +22,7 @@ public class Patient extends Personne{
 		//methode d'insertion d'un nouveau patient au base de donnée 
 	 //*************************************************************************
 	public void create_patient(Connection conn,Patient P) throws SQLException{
-		   String sql = "INSERT INTO Patient (id, nom, prenon, date_ness, telf, sexe,adresse_mail) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		   String sql = "INSERT INTO Patient (nom, prenon, date_ness, telf, sexe,adresse_mail) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		   
 		   PreparedStatement statement = conn.prepareStatement(sql);
 		   statement.setString(1, "");

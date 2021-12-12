@@ -9,11 +9,24 @@ public class Personne {
     private String nom;
     private String prenom;
     private Date date_ness;
-    private int telf;	
+    private String telf;	
     private String sexe;
-    Personne(int id,String nom,String prenon,Date date_ness,int telf,String sexe){
+    Personne(int id,String nom,String prenom,Date date_ness,String telf,String sexe){
      this.id=id;
+     this.nom = nom;
+     this.prenom = prenom;
+     this.date_ness = date_ness;
+     this.telf = telf;
+     this.sexe = sexe;
     }
+    
+    Personne(String nom,String prenon,Date date_ness,String telf,String sexe){
+        this.nom = nom;
+        this.prenom = prenom;
+        this.date_ness = date_ness;
+        this.telf = telf;
+        this.sexe = sexe;
+       }
  
 	public int getId() {
 		return id;
@@ -45,10 +58,10 @@ public class Personne {
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
 	}
-	public int getTelf() {
+	public String getTelf() {
 		return telf;
 	}
-	public void setTelf(int telf) {
+	public void setTelf(String telf) {
 		this.telf = telf;
 	}
 

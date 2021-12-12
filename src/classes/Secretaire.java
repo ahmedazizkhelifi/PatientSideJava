@@ -13,7 +13,7 @@ import classes.Personne;
 public class Secretaire extends Personne{
 	
 	private float salaire;
-    Secretaire(int id, String nom, String prenon, Date date_ness, int telf, String sexe,float salaire) {
+    Secretaire(int id, String nom, String prenon, Date date_ness, String telf, String sexe,float salaire) {
 		super(id, nom, prenon, date_ness, telf, sexe);
 		this.salaire=salaire;
 	}
@@ -30,7 +30,7 @@ public class Secretaire extends Personne{
   			   statement.setString(2, p.getNom());
   			   statement.setString(3, p.getPrenom());
   			   statement.setDate(4, p.getDate_ness());
-  			   statement.setInt(5, p.getTelf());
+  			   statement.setString(5, p.getTelf());
   			   statement.setString(6,p.getSexe());
   			   statement.setString(7, p.getAdresse_mail());
 
@@ -55,7 +55,7 @@ public class Secretaire extends Personne{
  		       String nom = result.getString(2);
  		       String prenom = result.getString(3);
  		       Date date_ness= result.getDate(4);
- 		       int telf= result.getInt(5);
+ 		       String telf= result.getString(5);
  		       String sexe= result.getString(6);
  		       String email = result.getString(7);
  	 		   

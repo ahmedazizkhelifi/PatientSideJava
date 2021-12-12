@@ -132,7 +132,7 @@
                                     <Font name="Monospaced Regular" size="18.0" />
                                  </font>
                               </PasswordField>
-                              <TextField fx:id="tfName" layoutX="137.0" layoutY="92.0" prefHeight="25.0" prefWidth="364.0" promptText="Nom et Prénom">
+                              <TextField fx:id="tfNom" layoutX="137.0" layoutY="92.0" prefHeight="35.0" prefWidth="178.0" promptText="NOM">
                                  <font>
                                     <Font name="Monospaced Regular" size="18.0" />
                                  </font>
@@ -198,6 +198,11 @@
                                     <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_about_48px_4.png" />
                                  </image>
                               </ImageView>
+                              <TextField fx:id="tfPrenom" layoutX="320.0" layoutY="93.0" prefHeight="35.0" prefWidth="180.0" promptText="Prénom">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </TextField>
                            </children>
                         </AnchorPane>
                      </children>

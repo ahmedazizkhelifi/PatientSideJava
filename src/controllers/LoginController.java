@@ -97,7 +97,10 @@ public class LoginController implements Initializable {
     private DatePicker tfBd;
 
     @FXML
-    private TextField tfName;
+    private TextField tfNom;
+    
+    @FXML
+    private TextField tfPrenom;
 
     @FXML
     private PasswordField tfPassword;
