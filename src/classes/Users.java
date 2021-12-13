@@ -116,7 +116,7 @@ public class Users {
 		}
 		
 		public static void createPatient(Patient p) throws SQLException{
-			p.create_patient();	
+			p.create();	
 		}
 
 		public void createUser(int id_role, int role) throws SQLException{

@@ -21,7 +21,7 @@ public class Secretaire extends Personne {
 
   //Methode d'insertion d'un nouveau patient au base de donnée 
   public void create_partient(Patient p) throws SQLException {
-    p.create_patient();
+    p.create();
   }
 
   //Methode READ (lister les patients) 
@@ -32,7 +32,7 @@ public class Secretaire extends Personne {
 
   //Methode UPDATE ( modification des donnees personnels du patient )
   public void updatePatient(Patient p) throws SQLException {
-	  p.update_patient();
+	  p.update();
 	  System.out.println("[Debug]: Patient updated from secretaire " + getId());
   }
   

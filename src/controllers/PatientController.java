@@ -329,7 +329,7 @@ public class PatientController implements Initializable{
         	p.setTelf(tfTel.getText());
         	p.setTelf(tfSexe.getText());
         	p.setAdresse(tfAdresse.getText());
-        	p.update_patient();
+        	p.update();
         	lblMAJDone.setVisible(true);
     	}
     	
