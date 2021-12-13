@@ -46,9 +46,9 @@ public class Patient extends Personne{
 	 //*************************************************************************
 		//methode d'insertion d'un nouveau patient au base de donnée 
 	 //*************************************************************************
-	public void create_patient(Connection conn,Patient P) throws SQLException{
+	public void create_patient(Patient P) throws SQLException{
+		
 		   String sql = "INSERT INTO Patient (nom, prenon, date_ness, telf, sexe,adresse_mail) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		   
 		   PreparedStatement statement = conn.prepareStatement(sql);
 		   statement.setString(1, "");
 		   statement.setString(2, "");
@@ -67,14 +67,42 @@ public class Patient extends Personne{
 	 //*************************************************************************
 	 //methode UPDATE ( modification des des donnees personnels du patient )
 	 //*************************************************************************
-	 public void update_patient(Connection conn, String sql ) throws SQLException{
-         
-     PreparedStatement statement = conn.prepareStatement(sql);
-
-	 int rowsUpdated = statement.executeUpdate();
-	 if (rowsUpdated > 0) {
-	     System.out.println("An existing user was updated successfully!");
+	 public void update_patient() throws SQLException{
+		 String query = "UPDATE patient SET nom = ?, prenom = ?, telf = ?, sexe = ?, adresse = ? WHERE id = ?";
+	     PreparedStatement statement = conn.prepareStatement(query);
+	     statement.setString(1, this.getNom());
+	     statement.setString(2, this.getPrenom());
+	     statement.setString(3, this.getTelf());
+	     statement.setString(4, this.getSexe());
+	     statement.setString(5, this.getAdresse());
+	     statement.setInt(6, this.getId());
+		 int rowsUpdated = statement.executeUpdate();
+		 if (rowsUpdated > 0) {
+		     System.out.println("An existing user was updated successfully!");
+		 }
+    }
+	 
+	 public String getNotes() throws SQLException{
+		 String query = "SELECT notes FROM patient WHERE id = ? ";
+		 PreparedStatement statement = conn.prepareStatement(query);
+		 statement.setInt(1, this.getId());
+		 ResultSet result = statement.executeQuery();
+		 if (result.next()) {
+			 return result.getString(1);
+		 }
+		 return "Vide";
 	 }
+	 
+	 public void updatePatientNotes(String notes) throws SQLException{
+		 String query = "UPDATE patient SET notes = ? WHERE id = ?";
+	     PreparedStatement statement = conn.prepareStatement(query);
+	     statement.setString(1, notes);
+
+	     statement.setInt(2, this.getId());
+		 int rowsUpdated = statement.executeUpdate();
+		 if (rowsUpdated > 0) {
+		     System.out.println("An existing user was updated successfully!");
+		 }
     }
 	 //*************************************************************************
 	 //methode READ (lister les donnees) 

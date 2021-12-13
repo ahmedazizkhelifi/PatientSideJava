@@ -1,170 +1,285 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-
-
+import javafx.scene.input.MouseEvent;
 import classes.CurrentUserData;
 import classes.Patient;
-
+import classes.RDV;
 
 
 public class PatientController implements Initializable{
 	
 
-		@FXML
-	    private Button btnAcceuil;
 
-	    @FXML
-	    private Button btnAcceuil1;
+    @FXML
+    private Button btnAcceuil;
 
-	    @FXML
-	    private Button btnAgenda;
+    @FXML
+    private Button btnAcceuil1;
 
-	    @FXML
-	    private Button btnAgenda1;
+    @FXML
+    private Button btnMAJProfile;
 
-	    @FXML
-	    private Button btnConsultations;
+    @FXML
+    private Button btnAgenda;
 
-	    @FXML
-	    private Button btnConsultations1;
+    @FXML
+    private Button btnAgenda1;
 
-	    @FXML
-	    private Button btnHide;
+    @FXML
+    private Button btnConsultations;
 
-	    @FXML
-	    private Button btnLogout;
+    @FXML
+    private Button btnConsultations1;
 
-	    @FXML
-	    private Button btnParam;
+    @FXML
+    private Button btnHide;
 
-	    @FXML
-	    private Button btnParam1;
+    @FXML
+    private Button btnLogout;
 
-	    @FXML
-	    private Button btnProfile;
+    @FXML
+    private Button btnParam;
 
-	    @FXML
-	    private Button btnProfile1;
+    @FXML
+    private Button btnParam1;
 
-	    @FXML
-	    private Button btnRV;
+    @FXML
+    private Button btnProfile;
 
-	    @FXML
-	    private Button btnRV1;
+    @FXML
+    private Button btnProfile1;
 
-	    @FXML
-	    private Label lblUserId;
+    @FXML
+    private Button btnRV;
 
-	    @FXML
-	    private Label lblWhere;
+    @FXML
+    private Button btnRV1;
 
-	    @FXML
-	    private Tab tabAcceuil;
+    @FXML
+    private Button btnSaveNotes;
+    
+    @FXML
+    private Button btnReqRV;
 
-	    @FXML
-	    private Tab tabAgenda;
+    @FXML
+    private Button btnSendRVReq;
 
-	    @FXML
-	    private Tab tabConsultations;
+    @FXML
+    private DatePicker dpReqRVDate;
 
-	    @FXML
-	    private Tab tabHistoriqueConsultations;
+    @FXML
+    private Label lblUserId;
 
-	    @FXML
-	    private Tab tabHistoriqueRV;
+    
+    @FXML
+    private Label lblMajNotes;
+    
+    @FXML
+    private Label lblWhere;
 
-	    @FXML
-	    private Tab tabParam;
+    @FXML
+    private Tab tabAcceuil;
 
-	    @FXML
-	    private Tab tabProfile;
+    @FXML
+    private Tab tabAgenda;
 
-	    @FXML
-	    private Tab tabRV;
+    @FXML
+    private Tab tabConsultations;
 
-	    @FXML
-	    private TabPane tabsConsultations;
+    @FXML
+    private Tab tabHistoriqueConsultations;
 
-	    @FXML
-	    private TabPane tabsPatient;
+    @FXML
+    private Tab tabHistoriqueRV;
 
-	    @FXML
-	    private TabPane tabsRV;
+    @FXML
+    private Tab tabParam;
 
-	    @FXML
-	    private TextArea tfAdresse;
+    @FXML
+    private Tab tabProfile;
 
-	    @FXML
-	    private TextField tfNom;
+    @FXML
+    private Tab tabRV;
 
-	    @FXML
-	    private TextArea tfNotes;
+    @FXML
+    private Tab tabReqRV;
 
-	    @FXML
-	    private TextField tfPrenom;
+    @FXML
+    private TabPane tabsConsultations;
 
-	    @FXML
-	    private TextField tfSexe;
+    @FXML
+    private TabPane tabsPatient;
 
-	    @FXML
-	    private TextField tfTel;
+    @FXML
+    private TabPane tabsRV;
 
-	    @FXML
-	    private TableView<?> tvConsultations;
+    @FXML
+    private TableColumn<?, ?> tcConsultaDate;
 
-	    @FXML
-	    private TableView<?> tvRV;
+    @FXML
+    private TableColumn<?, ?> tcConsultaId;
 
-	    @FXML
-	    private ImageView userImg1;
+    @FXML
+    private TableColumn<?, ?> tcConsultaRealise;
 
-	    @FXML
-	    private VBox vbSB;
+    @FXML
+    private TableColumn<RDV, Date> tcRVDate;
 
-	    @FXML
-	    private VBox vbSB1;
+    @FXML
+    private TableColumn<RDV, Integer> tcRVDone;
+
+    @FXML
+    private TableColumn<RDV, Integer> tcRVId;
+
+    @FXML
+    private TextArea tfAdresse;
+
+    @FXML
+    private TextField tfNom;
+
+    @FXML
+    private TextArea tfNotes;
+
+    @FXML
+    private TextField tfPrenom;
+
+    @FXML
+    private TextField tfSexe;
+
+    @FXML
+    private TextField tfTel;
+
+    @FXML
+    private TableView<?> tvConsultations;
+
+    @FXML
+    private TableView<RDV> tvRV;
+
+    @FXML
+    private ImageView userImg1;
+
+    @FXML
+    private VBox vbSB;
+
+    @FXML
+    private VBox vbSB1;
+    
+    @FXML
+    private TextField tfReqRVHeure;
+
+    @FXML
+    private TextField tfReqRVMin;
+
+    @FXML
+    private TextArea tfReqRVNotes;
 	    
-	    private Patient p = new Patient();
+    @FXML
+    private Label lblMAJDone;
+    
+    private Patient p = new Patient();
 	    
-	    //super(id, nom, prenon, date_ness, telf, sexe, adresse);
+    private Stage stage;
+	private Scene scene;
+	private Parent root;
+	    
+	    
 
-    @Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("Pat Id:" +CurrentUserData.getRoleId());	
-		try {
-			p = Patient.getPatientFromId(CurrentUserData.getRoleId());
-			System.out.println(p.toString());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	private void initProfile() throws SQLException {
 		lblUserId.setText(Integer.toString(p.getId()));
 		tfNom.setText(p.getNom().toUpperCase());
 		tfPrenom.setText(p.getPrenom());
 		tfTel.setText(p.getTelf());
 		tfSexe.setText(p.getSexe());
 		tfAdresse.setText(p.getAdresse());
+		tfNotes.setText(p.getNotes());
 	}
+	
+	
+	public void logOut(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		System.out.println(stage);
+		stage.show();
+	}
+	
+	private void initTV() throws SQLException{
+		RDV rdv = new RDV();
+		ArrayList<RDV> _RDVs = rdv.getRDVs(1,p.getId());
+		System.out.println(_RDVs);
+		
+		tcRVId.setCellValueFactory(new PropertyValueFactory<RDV, Integer>("id"));
+		tcRVDate.setCellValueFactory(new PropertyValueFactory<RDV, Date>("date_RDV"));
+		tcRVDone.setCellValueFactory(new PropertyValueFactory<RDV, Integer>("done"));
+		ObservableList<RDV> RDVs = FXCollections.observableArrayList(_RDVs);
+
+		tvRV.setItems(RDVs);
+	}
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+    	initVisible();
+		try {
+			p = Patient.getPatientFromId(CurrentUserData.getRoleId());
+			System.out.println(p.toString());
+			initProfile();
+			initTV();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    
+    @FXML
+    void cellDoubleClicked(MouseEvent event) {
+    	if (event.getSource() == tvConsultations) {
+    		if (event.getClickCount() == 2) {
+        		//System.out.println(tvConsultations.getSelectionModel().getSelectedItem().getClass().getName());                   
+        	}
+    	}
+    	
+    	if (event.getSource() == tvRV) {
+    		if (event.getClickCount() == 2) {
+    			tabRVDetails(tvRV.getSelectionModel().getSelectedItem());
+    			System.out.println(tvRV.getSelectionModel().getSelectedItem().getId());                 
+        	}
+    	}
+    	
+    }
+    	
+ 
     private void where(int here) {
+    	initVisible();
 		switch(here) {
 		case 0:
 			lblWhere.setText("Acceuil");
@@ -181,6 +296,7 @@ public class PatientController implements Initializable{
 		case 3:
 			lblWhere.setText("Rendez-vous");
 			tabsPatient.getSelectionModel().select(tabRV);
+			tabsRV.getSelectionModel().select(tabHistoriqueRV);
 			break;
 		case 4:
 			lblWhere.setText("Agenda");
@@ -190,11 +306,48 @@ public class PatientController implements Initializable{
 			lblWhere.setText("Paramètres");
 			tabsPatient.getSelectionModel().select(tabParam);
 			break;
+		case 31:
+			lblWhere.setText("Rendez-vous/Demande");
+			tabsRV.getSelectionModel().select(tabReqRV);
+			break;
 		}
 	}
     
+    void initVisible() {
+    	lblMAJDone.setVisible(false);
+    	lblMajNotes.setVisible(false);
+    }
+    
+    @FXML
+    void MAJProfile(ActionEvent event) throws SQLException {
+    	if (event.getSource() == btnMAJProfile) {
+    		p.setNom(tfNom.getText());
+        	p.setPrenom(tfPrenom.getText());
+        	p.setTelf(tfTel.getText());
+        	p.setTelf(tfSexe.getText());
+        	p.setAdresse(tfAdresse.getText());
+        	p.update_patient();
+        	lblMAJDone.setVisible(true);
+    	}
+    	
+    	if (event.getSource() == btnSaveNotes) {
+    		p.updatePatientNotes(tfNotes.getText());
+    		lblMajNotes.setVisible(true);
+    	}
+    }
+    
+    void tabRVDetails(RDV rdv) {
+    	Tab tab1 = new Tab(Integer.toString(rdv.getId()));
+    	tabsRV.getTabs().add(tab1);
+    	tabsRV.getSelectionModel().select(tab1);
+    	
+    }
+
+    
     @FXML
     void handleClicks(ActionEvent event) {
+    	
+    	// side bar
     	if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
 			where(0);
 		}
@@ -219,11 +372,16 @@ public class PatientController implements Initializable{
 		if (event.getSource() == btnParam || event.getSource() == btnParam1) {
 			where(5);
 		}
+		
+		
+		// RV
+		if(event.getSource() == btnReqRV) {
+			where(31);
+		}
+		
+		
     }
 
-    @FXML
-    void logOut(ActionEvent event) {
 
-    }
 
 }

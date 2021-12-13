@@ -116,8 +116,8 @@ public class Secretaire extends Personne{
 		       Date date_RDV= result.getDate("date_RDV");
 		       int heure=result.getInt("heure"); 
 		       int id_patient=result.getInt("id_patient");
-		       RDV r=new RDV(id,date_RDV,heure,id_patient);
-		       listRDV.add(r);
+		       //RDV r=new RDV(id,date_RDV,heure,id_patient);
+		       //listRDV.add(r);
   	
 		   }
 		return listRDV;

@@ -32,18 +32,8 @@ public class MedecinController implements Initializable {
 	private Scene scene;
 	private Parent root;
 	
-	
-	public void logOut(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		System.out.println(stage);
-		stage.show();
-	}
 
-	
-	
+
     @FXML
     private Button btnAcceuil;
 
@@ -131,7 +121,15 @@ public class MedecinController implements Initializable {
     @FXML
     private VBox vbSB1;
 
-    
+	
+	public void logOut(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		System.out.println(stage);
+		stage.show();
+	}
     
     @FXML
 	private void receiveData(ActionEvent event) {

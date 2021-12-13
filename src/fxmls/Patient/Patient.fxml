@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -201,6 +202,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label layoutX="317.0" layoutY="186.0" text="demande rv" />
                      </children>
                   </AnchorPane>
             </content>
@@ -222,10 +224,20 @@
                                           </Label>
                                        </children>
                                     </AnchorPane>
-                                    <TextArea fx:id="tfNotes" layoutY="45.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                                    <TextArea fx:id="tfNotes" layoutY="45.0" prefHeight="542.0" prefWidth="321.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
                                        <font>
                                           <Font name="Monospaced Regular" size="18.0" />
                                        </font></TextArea>
+                                    <Button fx:id="btnSaveNotes" alignment="CENTER" layoutX="52.0" layoutY="590.0" mnemonicParsing="false" onAction="#MAJProfile" prefHeight="35.0" prefWidth="217.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Enregister" textFill="WHITE">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="lblMajNotes" alignment="CENTER" layoutX="48.0" layoutY="625.0" prefHeight="19.0" prefWidth="230.0" text="Notes sont mise à jour." textFill="GREEN">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="15.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="271.0" prefWidth="217.0" style="-fx-background-color: white; -fx-background-radius: 20px;" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
@@ -345,11 +357,16 @@
                                                 </TextArea>
                                                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
                                                    <children>
-                                                      <Button fx:id="btnAcceuil2" alignment="CENTER" layoutX="120.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="31.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Mise à jour" textFill="WHITE" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
+                                                      <Button fx:id="btnMAJProfile" alignment="CENTER" layoutX="120.0" layoutY="3.0" mnemonicParsing="false" onAction="#MAJProfile" prefHeight="31.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Mise à jour" textFill="WHITE" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0">
                                                          <font>
                                                             <Font name="Monospaced Regular" size="18.0" />
                                                          </font>
                                                       </Button>
+                                                      <Label fx:id="lblMAJDone" alignment="CENTER" layoutX="163.0" layoutY="38.0" prefHeight="19.0" prefWidth="230.0" text="Donnée sont mise à jour." textFill="GREEN" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="163.0">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="15.0" />
+                                                         </font>
+                                                      </Label>
                                                    </children>
                                                    <GridPane.margin>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -364,6 +381,7 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
+                              <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="-15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -380,12 +398,15 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvConsultations" layoutX="14.0" layoutY="14.0" prefHeight="622.0" prefWidth="947.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                          <TableView fx:id="tvConsultations" layoutX="14.0" layoutY="67.0" onMouseClicked="#cellDoubleClicked" prefHeight="564.0" prefWidth="945.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="67.0">
                                             <columns>
-                                              <TableColumn prefWidth="75.0" text="C1" />
-                                              <TableColumn prefWidth="75.0" text="C2" />
+                                              <TableColumn fx:id="tcConsultaId" prefWidth="75.0" text="ID" />
+                                              <TableColumn fx:id="tcConsultaDate" prefWidth="387.0" text="Date" />
+                                                <TableColumn fx:id="tcConsultaRealise" prefWidth="300.0" text="Réalisé" />
+                                                <TableColumn prefWidth="147.0" text="Demande" />
                                             </columns>
                                           </TableView>
+                                          <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -409,15 +430,155 @@
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <TableView fx:id="tvRV" layoutX="14.0" layoutY="14.0" prefHeight="622.0" prefWidth="947.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                                <TableView fx:id="tvRV" layoutX="14.0" layoutY="68.0" onMouseClicked="#cellDoubleClicked" prefHeight="563.0" prefWidth="945.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="68.0">
                                                    <columns>
-                                                      <TableColumn prefWidth="75.0" text="C1" />
-                                                      <TableColumn prefWidth="75.0" text="C2" />
+                                                      <TableColumn fx:id="tcRVId" prefWidth="75.0" text="ID" />
+                                                      <TableColumn fx:id="tcRVDate" prefWidth="75.0" text="Date" />
+                                                      <TableColumn fx:id="tcRVDone" prefWidth="75.0" text="Réalisé" />
+                                                      <TableColumn prefWidth="75.0" text="Annulé" />
                                                    </columns>
                                                 </TableView>
+                                                <Button fx:id="btnReqRV" alignment="CENTER" layoutX="661.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="299.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Demander un rendez-vous" textFill="WHITE" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <TextField layoutX="27.0" layoutY="20.0" prefHeight="35.0" prefWidth="327.0" promptText="Recherche">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                        </content>
+                                    </Tab>
+                                    <Tab fx:id="tabReqRV" text="Demande RV">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <DatePicker fx:id="dpReqRVDate" layoutX="312.0" layoutY="127.0" prefHeight="45.0" prefWidth="352.0" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="311.0" />
+                                                <Label alignment="CENTER" layoutX="466.0" layoutY="95.0" text="Date" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="465.0">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="240.0" layoutY="28.0" text="Prenez rendez-vous en ligne chez votre médecin">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" layoutX="456.0" layoutY="270.0" prefHeight="23.0" prefWidth="70.0" text="Minute" AnchorPane.leftAnchor="459.0" AnchorPane.rightAnchor="446.0">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="CENTER" layoutX="459.0" layoutY="191.0" prefHeight="23.0" prefWidth="60.0" text="Heure" AnchorPane.leftAnchor="459.0" AnchorPane.rightAnchor="456.0">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="tfReqRVHeure" layoutX="400.0" layoutY="223.0" prefHeight="35.0" prefWidth="177.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="398.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <TextField fx:id="tfReqRVMin" layoutX="400.0" layoutY="306.0" prefHeight="35.0" prefWidth="177.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="398.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label alignment="CENTER" layoutX="462.0" layoutY="350.0" text="Notes" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="453.0">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextArea fx:id="tfReqRVNotes" layoutX="189.0" layoutY="375.0" prefHeight="200.0" prefWidth="599.0" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="375.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextArea>
+                                                <Button fx:id="btnSendRVReq" alignment="CENTER" layoutX="361.0" layoutY="593.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="299.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Envoyer la demande" textFill="WHITE" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="361.0" AnchorPane.rightAnchor="315.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                    <Tab text="RV Details">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                                <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="217.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+                                                   <children>
+                                                      <Label layoutX="19.0" layoutY="18.0" text="Rendez-vous" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="18.0">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="lblRVId" layoutX="144.0" layoutY="19.0" prefHeight="23.0" prefWidth="50.0" text="0000" AnchorPane.leftAnchor="144.0" AnchorPane.topAnchor="19.0">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="159.0" layoutY="89.0" prefHeight="537.0" prefWidth="708.0" style="-fx-background-color: white; -fx-background-radius: 20px;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
+                                                   <children>
+                                                      <AnchorPane layoutX="35.0" layoutY="14.0" prefHeight="45.0" prefWidth="336.0" style="-fx-background-color: #4886D9;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" layoutX="51.0" layoutY="11.0" prefHeight="23.0" prefWidth="224.0" text="Détails" textFill="WHITE" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="11.0">
+                                                               <font>
+                                                                  <Font name="Monospaced Bold" size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <DatePicker fx:id="dpReqRVDate1" layoutX="172.0" layoutY="136.0" prefHeight="45.0" prefWidth="352.0" />
+                                                      <Label alignment="CENTER" layoutX="326.0" layoutY="104.0" text="Date">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER" layoutX="316.0" layoutY="279.0" prefHeight="23.0" prefWidth="70.0" text="Minute">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label alignment="CENTER" layoutX="319.0" layoutY="200.0" prefHeight="23.0" prefWidth="60.0" text="Heure">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="tfReqRVHeure1" layoutX="260.0" layoutY="232.0" prefHeight="35.0" prefWidth="177.0">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <TextField fx:id="tfReqRVMin1" layoutX="260.0" layoutY="315.0" prefHeight="35.0" prefWidth="177.0">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Button fx:id="btnSendRVReq1" alignment="CENTER" layoutX="360.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="299.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Annuler le rendez-vous" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="15.0">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <Button fx:id="btnSendRVReq11" alignment="CENTER" layoutX="26.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="299.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Demander une modification" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="15.0">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
                                     </Tab>
                                  </tabs>
                               </TabPane>
@@ -441,12 +602,19 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label layoutX="276.0" layoutY="200.0" text="edit password" />
+                        <Label layoutX="327.0" layoutY="265.0" text="delete account" />
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
         </tabs>
       </TabPane>
+      <AnchorPane layoutX="337.0" layoutY="10.0" prefHeight="100.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label layoutX="20.0" layoutY="78.0" text="btn retoir" />
+         </children>
+      </AnchorPane>
       <AnchorPane layoutX="6.0" prefHeight="82.0" prefWidth="336.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="btnHide" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="17.0" prefWidth="29.0" style="-fx-background-color: white; -fx-cursor: hand;">
@@ -478,7 +646,7 @@
                   <Font name="Monospaced Regular" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="473.0" layoutY="25.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" text="Button" />
+            <Button fx:id="btnLogout" layoutX="535.0" layoutY="29.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" text="Button" />
          </children>
       </AnchorPane>
    </children>
