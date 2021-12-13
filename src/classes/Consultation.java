@@ -110,5 +110,16 @@ public class Consultation {
    public void setIdRDV(int idRdv) {
       this.idRDV = idRdv;
    }
+   
+   @Override
+   public String toString() {
+      return "{" +
+         " id='" + getId() + "'" +
+         ", details='" + getDetails() + "'" +
+         ", ordonnance='" + getOrdonnance() + "'" +
+         ", idPatient='" + getIdPatient() + "'" +
+         ", idRDV='" + getIdRDV() + "'" +
+         "}";
+   }
 
 }
