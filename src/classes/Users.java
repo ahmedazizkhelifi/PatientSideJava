@@ -82,7 +82,7 @@ public class Users {
 			createPatient(p);	
 			int maxId = getMaxPatientId();
 			// create user
-			createUserPatient(maxId);
+			createUser(maxId,2);
 
 			return true;
 			
@@ -107,10 +107,15 @@ public class Users {
 			String query = "SELECT max(id) FROM patient";
 			PreparedStatement statement = conn.prepareStatement(query);
 			ResultSet resultat = statement.executeQuery();
-			if (resultat.next())
-				return resultat.getInt(1);
+			if (resultat.next()) {
+					lastId = resultat.getInt(1);
+					return resultat.getInt(1);
+			}
+				
 			return -1;
 		}
+		
+		// !!! patient
 		
 		public static void createPatient(Patient p) throws SQLException{
 			
@@ -122,6 +127,8 @@ public class Users {
 			   statement.setString(4, p.getTelf());
 			   statement.setString(5,p.getSexe());
 			   statement.setString(6, p.getAdresse());
+			   
+			   
 			   int rowsInserted = statement.executeUpdate();
 			   if (rowsInserted > 0) {
 				   System.out.println("A new row was inserted successfully!");
@@ -131,13 +138,15 @@ public class Users {
 			
 		}
 
-		public void createUserPatient(int id_role) throws SQLException{
+		// users
+		public void createUser(int id_role, int role) throws SQLException{
 			
-			String query = "INSERT INTO users (username, password, id_role) VALUES (?,?,?)";
+			String query = "INSERT INTO users (username, password, id_role, role) VALUES (?,?,?,?)";
 			PreparedStatement statement = conn.prepareStatement(query);
 			 statement.setString(1, this.username);
 			 statement.setString(2, getSecurePassword(this.getPassword(), this.getSalt()) );
 			 statement.setInt(3, id_role);
+			 statement.setInt(4, role);
 			 
 			   int rowsInserted = statement.executeUpdate();
 			   if (rowsInserted > 0) {
@@ -149,12 +158,7 @@ public class Users {
 		}
 
 		
-		
-		public static void createUser() throws SQLException{
-			String query = "INSERT INTO users (username, password, id_role) VALUES (?, ?, ?, ?, ?, ?)";
-			PreparedStatement statement = conn.prepareStatement(query);
-			
-		}
+
 		
 		public boolean login() throws SQLException {
 			if (!usernameExist()) {
@@ -226,22 +230,5 @@ public class Users {
 	        }
 	        return generatedPassword;
 	    }
-	 
-	 /*
-	 // Add salt
-	    private static String getSalt() throws NoSuchAlgorithmException, NoSuchProviderException 
-	    {
-	        // Always use a SecureRandom generator
-	        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG", "SUN");
 
-	        // Create array for salt
-	        byte[] salt = new byte[16];
-
-	        // Get a random salt
-	        sr.nextBytes(salt);
-
-	        // return salt
-	        return salt.toString();
-	    }
-	    */
 }

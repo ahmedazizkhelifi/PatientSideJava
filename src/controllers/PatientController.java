@@ -206,6 +206,9 @@ public class PatientController implements Initializable{
     @FXML
     private Label lblMAJDone;
     
+    @FXML
+    private Button btnWoo;
+    
     private Patient p = new Patient();
 	    
     private Stage stage;
@@ -382,6 +385,9 @@ public class PatientController implements Initializable{
 		
     }
 
-
+    @FXML
+    void fnAfficher(ActionEvent event) {
+    	System.out.println("lkjlkj");
+    }
 
 }
