@@ -20,6 +20,7 @@ public class RDV {
 	private int idMedecin;
 	
 	private static Connection conn = Mysqlconnector.getConnection();
+	
 	public RDV() {
 		
 	}
@@ -36,13 +37,13 @@ public class RDV {
 	
 
 	
-	public ArrayList<RDV> getRDVs(int q, int id) throws SQLException {
+	public ArrayList<RDV> getRDVs(int queryWho, int id) throws SQLException {
 		String query = "";
-		if (q == -1)
+		if (queryWho == -1)
 			query = "SELECT * FROM rdv";
-		else if (q==0) {
+		else if (queryWho == 0) {
 			query = "SELECT * FROM rdv " + "WHERE idMedecin = " + id;
-		}else if (q == 1) {
+		}else if (queryWho == 1) {
 			query = "SELECT * FROM rdv " + "WHERE idPatient = " + id;
 		}
 		PreparedStatement statement = conn.prepareStatement(query);
@@ -59,15 +60,8 @@ public class RDV {
 			RDV rdv =new RDV(_id,_date,_heure,_minute,_done,_idPatient,_idMedecin);
 			RDVs.add(rdv);
 		}
-		
 		return RDVs;
 	}
-	
-	
-	
-	
-	
-	
 
 	public int getId() {
 		return id;
