@@ -334,7 +334,7 @@ public class PatientController implements Initializable{
     	}
     	
     	if (event.getSource() == btnSaveNotes) {
-    		p.updatePatientNotes(tfNotes.getText());
+    		p.updateNotes(tfNotes.getText());
     		lblMajNotes.setVisible(true);
     	}
     }

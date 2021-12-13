@@ -276,12 +276,12 @@ public class LoginController implements Initializable {
 		System.out.println(user.getRole());
 		
 		if (user.getRole() == 0 ) { // medecin
-			medecinStage(event, user.getPersonId());
+			medecinStage(event, user.getRoleId());
 		} else if (user.getRole() == 1) {
 			// secretaire
 		}
 			else { // 2
-				patientStage(event, user.getPersonId());
+				patientStage(event, user.getRoleId());
 		}
 		return false;
 	}

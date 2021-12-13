@@ -26,6 +26,7 @@ public class Patient extends Personne {
     super("", "", new Date(1, 1, 2000), "", "", "");
   }
 
+  // /=============
   //  C
   public void create() throws SQLException {
     String _query = "INSERT INTO Patient (nom, prenom, date_ness, telf, sexe, adresse) VALUES (?, ?, ?, ?, ?, ?)";
@@ -43,8 +44,10 @@ public class Patient extends Personne {
       System.out.println("A new row was inserted successfully!");
     }
   }
-  // \C
+  // C\
+  // =============\
 
+  // /=============
   //  R
   public static ArrayList < Patient > readPatients() throws SQLException {
     String _query = "SELECT * FROM patient";
@@ -100,8 +103,21 @@ public class Patient extends Personne {
     }
     return p;
   }
-  // \R
+  
+  public static int getMaxPatientId() throws SQLException {
+      String query = "SELECT max(id) FROM patient";
+      PreparedStatement statement = conn.prepareStatement(query);
+      ResultSet resultat = statement.executeQuery();
+      if (resultat.next()) {
+         return resultat.getInt(1);
+      }
 
+      return -1;
+   }
+  // R\
+  // =============\
+
+  // /=============
   //   U
   public void update() throws SQLException {
     String query = "UPDATE patient SET nom = ?, prenom = ?, telf = ?, sexe = ?, adresse = ? WHERE id = ?";
@@ -118,7 +134,7 @@ public class Patient extends Personne {
     }
   }
 
-  public void updatePatientNotes(String notes) throws SQLException {
+  public void updateNotes(String notes) throws SQLException {
     String query = "UPDATE patient SET notes = ? WHERE id = ?";
     PreparedStatement statement = conn.prepareStatement(query);
     statement.setString(1, notes);
@@ -129,8 +145,10 @@ public class Patient extends Personne {
       System.out.println("An existing user was updated successfully!");
     }
   }
-  // \U
+  // U\
+  // =============\
 
+  // /=============
   //  D
   public void delete() throws SQLException {
     //requete a executer( supprimer le patient)
@@ -142,8 +160,10 @@ public class Patient extends Personne {
       System.out.println("Patient deleted.");
     }
   }
-  // \D
+  // D\
+  // =============\
 
+  
   //*************************************************************************
   //methode READ (lister les donnees) 
   //*************************************************************************
