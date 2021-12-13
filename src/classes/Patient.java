@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import BDconnector.Mysqlconnector;
 public class Patient extends Personne{
     
@@ -43,7 +45,7 @@ public class Patient extends Personne{
 	}
 	
 	 //*************************************************************************
-		//methode d'insertion d'un nouveau patient au base de donnée 
+		//C methode d'insertion d'un nouveau patient au base de donnée 
 	 //*************************************************************************
 	public void create_patient() throws SQLException{
 		String _query = "INSERT INTO Patient (nom, prenom, date_ness, telf, sexe, adresse) VALUES (?, ?, ?, ?, ?, ?)";
@@ -62,8 +64,46 @@ public class Patient extends Personne{
 		}
 	 }
 	
+	//R
+	 public static ArrayList<Patient> readPatients() throws SQLException{
+		 String _query = "SELECT * FROM patient";
+		 Statement statement = conn.createStatement();
+		 ResultSet result = statement.executeQuery(_query);
+		 //creation du table pour stocker les patients 
+		 ArrayList<Patient> listpatient= new ArrayList<>();
+		 
+		 while (result.next()){
+			 //importation des donnees d'un patient
+		     int id = result.getInt(1);
+		     String nom = result.getString(2);
+		     String prenom = result.getString(3);
+		     Date date_ness= result.getDate(4);
+		     String telf= result.getString(5);
+		     String sexe= result.getString(6);
+		     String adresse = result.getString(7);
+		     
+		     //sockage des patient dans une liste
+	 		 Patient p = new Patient(id,nom,prenom,date_ness,telf,sexe,adresse);
+             listpatient.add(p); 
+		   }
+		 
+	       return listpatient;  
+
+	    }
+	 //D
+	 public void delete() throws SQLException {
+		    //requete a executer( supprimer le patient)
+		    String _query = "DELETE FROM patient WHERE id = ?";
+		    PreparedStatement statement = conn.prepareStatement(_query);
+		    statement.setInt(1, this.getId());
+		    int rowsDeleted = statement.executeUpdate();
+		    if (rowsDeleted > 0) {
+		      System.out.println("Patient deleted.");
+		    }
+	 }
+	
 	 //*************************************************************************
-	 //methode UPDATE ( modification des des donnees personnels du patient )
+	 //U methode UPDATE ( modification des des donnees personnels du patient )
 	 //*************************************************************************
 	 public void update_patient() throws SQLException{
 		 String query = "UPDATE patient SET nom = ?, prenom = ?, telf = ?, sexe = ?, adresse = ? WHERE id = ?";
@@ -124,6 +164,10 @@ public class Patient extends Personne{
 		   }   
 
 	    }
+	 
+ 	 //*************************************************************************
+ 	 //methode filtrer (lister les patients) 
+ 	 //*************************************************************************
 
 	// ??
     public void payer(){
@@ -141,10 +185,4 @@ public class Patient extends Personne{
 		return null;
 	}
 	
-	public String toString() {
-		return "";
-	}
-
-
-
 }
