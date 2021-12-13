@@ -40,28 +40,26 @@ public class Patient extends Personne{
 			p.setAdresse(result.getString(7));
 		}
 		return p;
-		
 	}
 	
 	 //*************************************************************************
 		//methode d'insertion d'un nouveau patient au base de donnée 
 	 //*************************************************************************
-	public void create_patient(Patient P) throws SQLException{
-		
-		   String sql = "INSERT INTO Patient (nom, prenon, date_ness, telf, sexe,adresse_mail) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		   PreparedStatement statement = conn.prepareStatement(sql);
-		   statement.setString(1, "");
-		   statement.setString(2, "");
-		   statement.setString(3, "");
-		   statement.setString(4, "");
-		   statement.setString(5, "");
-		   statement.setString(6, "");
-		   statement.setString(7, "");
-
-		   int rowsInserted = statement.executeUpdate();
-		   if (rowsInserted > 0) {
-		       System.out.println("A new row was inserted successfully!");
-		   }
+	public void create_patient() throws SQLException{
+		String _query = "INSERT INTO Patient (nom, prenom, date_ness, telf, sexe, adresse) VALUES (?, ?, ?, ?, ?, ?)";
+		PreparedStatement statement = conn.prepareStatement(_query);
+		statement.setString(1, this.getNom());
+		statement.setString(2, this.getPrenom());
+		statement.setDate(3, this.getDate_ness());
+		statement.setString(4, this.getTelf());
+		statement.setString(5, this.getSexe());
+		statement.setString(6, this.getAdresse());   
+		int rowsInserted = statement.executeUpdate();
+		if (rowsInserted > 0) {
+			System.out.println("A new row was inserted successfully!");
+			System.out.println(rowsInserted);
+		    System.out.println("A new row was inserted successfully!");
+		}
 	 }
 	
 	 //*************************************************************************
@@ -107,6 +105,8 @@ public class Patient extends Personne{
 	 //*************************************************************************
 	 //methode READ (lister les donnees) 
 	 //*************************************************************************
+	 
+	 // consultation !!
 	 public void read_hitorique_consumtation(Connection conn, String sql ) throws SQLException{
  
 		   Statement statement = conn.createStatement();
@@ -125,9 +125,12 @@ public class Patient extends Personne{
 
 	    }
 
+	// ??
     public void payer(){
 
     }
+    
+    // RDV
     public void demander_RDV(){
 
     }

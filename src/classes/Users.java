@@ -115,30 +115,10 @@ public class Users {
 			return -1;
 		}
 		
-		// !!! patient
-		
 		public static void createPatient(Patient p) throws SQLException{
-			
-			String query = "INSERT INTO Patient (nom, prenom, date_ness, telf, sexe, adresse) VALUES (?, ?, ?, ?, ?, ?)";
-			PreparedStatement statement = conn.prepareStatement(query);
-			 statement.setString(1, p.getNom());
-			   statement.setString(2, p.getPrenom());
-			   statement.setDate(3, p.getDate_ness());
-			   statement.setString(4, p.getTelf());
-			   statement.setString(5,p.getSexe());
-			   statement.setString(6, p.getAdresse());
-			   
-			   
-			   int rowsInserted = statement.executeUpdate();
-			   if (rowsInserted > 0) {
-				   System.out.println("A new row was inserted successfully!");
-				   System.out.println(rowsInserted);
-			       System.out.println("A new row was inserted successfully!");
-			   }
-			
+			p.create_patient();	
 		}
 
-		// users
 		public void createUser(int id_role, int role) throws SQLException{
 			
 			String query = "INSERT INTO users (username, password, id_role, role) VALUES (?,?,?,?)";
@@ -153,13 +133,9 @@ public class Users {
 				   System.out.println("A new row was inserted successfully!");
 				   System.out.println(rowsInserted);
 			       System.out.println("A new row was inserted successfully!");
-			   }
-			
+			   }			
 		}
 
-		
-
-		
 		public boolean login() throws SQLException {
 			if (!usernameExist()) {
 				System.out.println("not exist");
