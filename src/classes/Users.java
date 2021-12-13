@@ -165,8 +165,8 @@ public class Users {
 			}
 			String _hashedPw = getSecurePassword(this.getPassword(), this.getSalt());
 			//System.out.println("_hashedPw= " + _hashedPw);
-			String query = "SELECT * FROM users WHERE username = ? and password = ?";//WHERE username = ? and password = ?";
-			PreparedStatement statement = this.conn.prepareStatement(query);
+			String query = "SELECT * FROM users WHERE username = ? and password = ?";
+			PreparedStatement statement = conn.prepareStatement(query);
 			statement.setString(1, this.getUsername());
 			statement.setString(2, _hashedPw);
 			

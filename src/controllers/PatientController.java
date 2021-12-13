@@ -1,113 +1,194 @@
 package controllers;
 
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.VBox;
+import javafx.event.ActionEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
-public class PatientController {
 
-    @FXML
-    private Button btnAcceuil;
+import classes.CurrentUserData;
+import classes.Patient;
 
-    @FXML
-    private Button btnAcceuil1;
 
-    @FXML
-    private Button btnAgenda;
 
-    @FXML
-    private Button btnAgenda1;
+public class PatientController implements Initializable{
+	
 
-    @FXML
-    private Button btnConsultations;
+		@FXML
+	    private Button btnAcceuil;
 
-    @FXML
-    private Button btnConsultations1;
+	    @FXML
+	    private Button btnAcceuil1;
 
-    @FXML
-    private Button btnHide;
+	    @FXML
+	    private Button btnAgenda;
 
-    @FXML
-    private Button btnLogout;
+	    @FXML
+	    private Button btnAgenda1;
 
-    @FXML
-    private Button btnParam;
+	    @FXML
+	    private Button btnConsultations;
 
-    @FXML
-    private Button btnParam1;
+	    @FXML
+	    private Button btnConsultations1;
 
-    @FXML
-    private Button btnProfile;
+	    @FXML
+	    private Button btnHide;
 
-    @FXML
-    private Button btnProfile1;
+	    @FXML
+	    private Button btnLogout;
 
-    @FXML
-    private Button btnRV;
+	    @FXML
+	    private Button btnParam;
 
-    @FXML
-    private Button btnRV1;
+	    @FXML
+	    private Button btnParam1;
 
-    @FXML
-    private Label lblWhere;
+	    @FXML
+	    private Button btnProfile;
 
-    @FXML
-    private Tab tabAcceuil;
+	    @FXML
+	    private Button btnProfile1;
 
-    @FXML
-    private Tab tabAgenda;
+	    @FXML
+	    private Button btnRV;
 
-    @FXML
-    private Tab tabConsultations;
+	    @FXML
+	    private Button btnRV1;
 
-    @FXML
-    private Tab tabParam;
+	    @FXML
+	    private Label lblUserId;
 
-    @FXML
-    private Tab tabProfile;
+	    @FXML
+	    private Label lblWhere;
 
-    @FXML
-    private Tab tabRV;
+	    @FXML
+	    private Tab tabAcceuil;
 
-    @FXML
-    private TabPane tabsMedecin;
+	    @FXML
+	    private Tab tabAgenda;
 
-    @FXML
-    private VBox vbSB;
+	    @FXML
+	    private Tab tabConsultations;
 
-    @FXML
-    private VBox vbSB1;
+	    @FXML
+	    private Tab tabHistoriqueConsultations;
 
-    
+	    @FXML
+	    private Tab tabHistoriqueRV;
+
+	    @FXML
+	    private Tab tabParam;
+
+	    @FXML
+	    private Tab tabProfile;
+
+	    @FXML
+	    private Tab tabRV;
+
+	    @FXML
+	    private TabPane tabsConsultations;
+
+	    @FXML
+	    private TabPane tabsPatient;
+
+	    @FXML
+	    private TabPane tabsRV;
+
+	    @FXML
+	    private TextArea tfAdresse;
+
+	    @FXML
+	    private TextField tfNom;
+
+	    @FXML
+	    private TextArea tfNotes;
+
+	    @FXML
+	    private TextField tfPrenom;
+
+	    @FXML
+	    private TextField tfSexe;
+
+	    @FXML
+	    private TextField tfTel;
+
+	    @FXML
+	    private TableView<?> tvConsultations;
+
+	    @FXML
+	    private TableView<?> tvRV;
+
+	    @FXML
+	    private ImageView userImg1;
+
+	    @FXML
+	    private VBox vbSB;
+
+	    @FXML
+	    private VBox vbSB1;
+	    
+	    private Patient p = new Patient();
+	    
+	    //super(id, nom, prenon, date_ness, telf, sexe, adresse);
+
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		System.out.println("Pat Id:" +CurrentUserData.getRoleId());	
+		try {
+			p = Patient.getPatientFromId(CurrentUserData.getRoleId());
+			System.out.println(p.toString());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		lblUserId.setText(Integer.toString(p.getId()));
+		tfNom.setText(p.getNom().toUpperCase());
+		tfPrenom.setText(p.getPrenom());
+		tfTel.setText(p.getTelf());
+		tfSexe.setText(p.getSexe());
+		tfAdresse.setText(p.getAdresse());
+	}
     private void where(int here) {
 		switch(here) {
 		case 0:
 			lblWhere.setText("Acceuil");
-			tabsMedecin.getSelectionModel().select(tabAcceuil);
+			tabsPatient.getSelectionModel().select(tabAcceuil);
 			break;
 		case 1:
 			lblWhere.setText("Profile");
-			tabsMedecin.getSelectionModel().select(tabProfile);
+			tabsPatient.getSelectionModel().select(tabProfile);
 			break;
 		case 2:
 			lblWhere.setText("Consultations");
-			tabsMedecin.getSelectionModel().select(tabConsultations);
+			tabsPatient.getSelectionModel().select(tabConsultations);
 			break;
 		case 3:
 			lblWhere.setText("Rendez-vous");
-			tabsMedecin.getSelectionModel().select(tabRV);
+			tabsPatient.getSelectionModel().select(tabRV);
 			break;
 		case 4:
 			lblWhere.setText("Agenda");
-			tabsMedecin.getSelectionModel().select(tabAgenda);
+			tabsPatient.getSelectionModel().select(tabAgenda);
 			break;
 		case 5:
 			lblWhere.setText("Paramètres");
-			tabsMedecin.getSelectionModel().select(tabParam);
+			tabsPatient.getSelectionModel().select(tabParam);
 			break;
 		}
 	}

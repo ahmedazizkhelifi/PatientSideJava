@@ -147,11 +147,7 @@ public class MedecinController implements Initializable {
 	    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		
 		System.out.println("Med Id:" +CurrentUserData.getRoleId());
-        System.out.println("???");
-	
 	}
 	
 	private void where(int here) {

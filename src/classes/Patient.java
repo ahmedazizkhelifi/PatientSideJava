@@ -6,21 +6,42 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import BDconnector.Mysqlconnector;
 public class Patient extends Personne{
     
-
+	private static Connection conn = Mysqlconnector.getConnection();
 	
-	public Patient(int id, String nom, String prenon, Date date_ness, String telf, String sexe,String adresse) {
-			super(id, nom, prenon, date_ness, telf, sexe, adresse);
+	public Patient(int id, String nom, String prenom, Date date_ness, String telf, String sexe,String adresse) {
+			super(id, nom, prenom, date_ness, telf, sexe, adresse);
 			
     }
 	
-	public Patient(String nom, String prenon, Date date_ness, String telf, String sexe,String adresse) {
-		super(nom, prenon, date_ness, telf, sexe, adresse);
-		
-}
+	public Patient(String nom, String prenom, Date date_ness, String telf, String sexe,String adresse) {
+		super(nom, prenom, date_ness, telf, sexe, adresse);
+	}
 	
+	public Patient() {
+		super("","",new Date(1,1,2000), "","","");
+	}
+
+	public static Patient getPatientFromId(int id) throws SQLException {
+		String query = "SELECT * FROM patient WHERE id = ?";
+		Patient p = new Patient();
+		PreparedStatement statement = conn.prepareStatement(query);
+		statement.setInt(1, id);
+		ResultSet result = statement.executeQuery();
+		if (result.next()) {
+			p.setId(result.getInt(1)); 
+			p.setNom(result.getString(2));
+			p.setPrenom(result.getString(3));
+			p.setDate_ness(result.getDate(4));
+			p.setTelf(result.getString(5));
+			p.setSexe(result.getString(6));
+			p.setAdresse(result.getString(7));
+		}
+		return p;
+		
+	}
 	
 	 //*************************************************************************
 		//methode d'insertion d'un nouveau patient au base de donnée 
