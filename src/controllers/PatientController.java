@@ -239,7 +239,7 @@ public class PatientController implements Initializable{
 	
 	private void initTV() throws SQLException{
 		RDV rdv = new RDV();
-		ArrayList<RDV> _RDVs = rdv.getRDVs(1,p.getId());
+		ArrayList<RDV> _RDVs = rdv.read(true, p.getId());
 		System.out.println(_RDVs);
 		
 		tcRVId.setCellValueFactory(new PropertyValueFactory<RDV, Integer>("id"));

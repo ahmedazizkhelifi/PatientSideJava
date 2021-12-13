@@ -7,10 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 //import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TabPane;
 
 
-import classes.Patient;
 
 public class Main extends Application {
 	
@@ -19,7 +17,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			System.out.println(Patient.readPatients());
 			window = primaryStage;
 			// Login scene
 			AnchorPane loginRoot= (AnchorPane)FXMLLoader.load(getClass().getResource("/fxmls/Login/Login.fxml"));

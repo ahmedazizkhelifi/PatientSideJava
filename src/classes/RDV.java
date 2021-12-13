@@ -11,13 +11,14 @@ import BDconnector.Mysqlconnector;
 
 public class RDV {
 	private int id;
-	private Date date_RDV;
+	private Date quand;
 	private int heure; 
-	private int id_patient;
 	private int minutes;
-	private int done;
 	private int idPatient;
-	private int idMedecin;
+	private boolean done;
+	private Date creaDate;
+	private boolean isOnline;
+	// creaDate, isOnline
 	
 	private static Connection conn = Mysqlconnector.getConnection();
 	
@@ -25,56 +26,105 @@ public class RDV {
 		
 	}
 	
-	public RDV(int id,Date date_RDV,int heure, int minutes, int done ,int idPatient, int idMedecin) {
+	public RDV(int id, Date quand, int heure, int minutes, boolean done ,int idPatient, Date creaDate, boolean isOnline) {
 		this.id=id;
-		this.date_RDV=date_RDV;
+		this.setQuand(quand);
 		this.heure=heure;
 		this.minutes = minutes;
 		this.setDone(done);
 		this.setIdPatient(idPatient);
-		this.setIdMedecin(idMedecin);
+		this.creaDate = creaDate;
+		this.isOnline = isOnline;
 	}
 	
 
+	// <CRUD
 	
-	public ArrayList<RDV> getRDVs(int queryWho, int id) throws SQLException {
-		String query = "";
-		if (queryWho == -1)
-			query = "SELECT * FROM rdv";
-		else if (queryWho == 0) {
-			query = "SELECT * FROM rdv " + "WHERE idMedecin = " + id;
-		}else if (queryWho == 1) {
-			query = "SELECT * FROM rdv " + "WHERE idPatient = " + id;
+	// C
+	
+	public void create() throws SQLException{
+		String _query = "INSERT INTO RDV (quand, heure, minute, idPatient, done, creaDate, isOnline) VALUES (?, ?, ?, ?, ?, CURDATE(), ?)";
+		PreparedStatement statement = conn.prepareStatement(_query);
+		statement.setDate(1, this.getQuand());
+		statement.setInt(2, this.getHeure());
+		statement.setInt(3, this.getMinute());
+		statement.setInt(4, this.getIdPatient());
+		statement.setBoolean(5, this.getDone());
+		statement.setBoolean(6, this.isOnline());
+		int rowsInserted = statement.executeUpdate();
+		if (rowsInserted > 0) {
+			System.out.println("A new row was inserted successfully!");
 		}
-		PreparedStatement statement = conn.prepareStatement(query);
+	}
+	
+	// C\
+	
+	// R
+	public ArrayList<RDV> read(boolean isPatient, int idPatient) throws SQLException {
+		String _query = "";
+		if (isPatient)
+			_query = "SELECT * FROM rdv " + "WHERE idPatient = " + idPatient; 
+		else
+			_query = "SELECT * FROM rdv";
+		PreparedStatement statement = conn.prepareStatement(_query);
 		ResultSet resultat = statement.executeQuery();
 		ArrayList<RDV> RDVs =  new ArrayList<RDV>();
 		while (resultat.next()) {
 			int _id = resultat.getInt(1);
-			Date _date = resultat.getDate("quand");
+			Date _quand = resultat.getDate("quand");
 			int _heure = resultat.getInt("heure"); 
 			int _minute = resultat.getInt("minute"); 
 			int _idPatient = resultat.getInt("idPatient");
-			int _idMedecin = resultat.getInt("idMedecin");
-			int _done = resultat.getInt("done");
-			RDV rdv =new RDV(_id,_date,_heure,_minute,_done,_idPatient,_idMedecin);
+			boolean _done = resultat.getBoolean("done");
+			Date _creaDate = resultat.getDate("creaDate");
+			boolean _isOnline = resultat.getBoolean("isOnline");
+			RDV rdv = new RDV(_id, _quand, _heure, _minute, _done, _idPatient, _creaDate, _isOnline);
 			RDVs.add(rdv);
 		}
+	
 		return RDVs;
 	}
-
+	// R\
+	
+	// U
+	public void update() throws SQLException{
+		String query = "UPDATE RDV SET quand = ?, heure = ?, minute = ?, done=?, idPatient = ?, isOnline = ? WHERE id = ?";
+	    PreparedStatement statement = conn.prepareStatement(query);
+		statement.setDate(1, this.getQuand());
+		statement.setInt(2, this.getHeure());
+		statement.setInt(3, this.getMinute());
+		statement.setBoolean(4, this.getDone());
+		statement.setInt(5, this.getIdPatient());
+		statement.setBoolean(6, this.isOnline());
+		statement.setInt(7, this.getId());
+		 int rowsUpdated = statement.executeUpdate();
+		 if (rowsUpdated > 0) {
+		     System.out.println("An existing RDV was updated successfully!");
+		 }
+	}
+	// U\
+	
+	// D
+	 public void delete() throws SQLException{	 
+	     //requete a executer( supprimer la RDV de l'ID i)
+		 String sql = "DELETE FROM RDV WHERE id = ?";			 
+		 PreparedStatement statement = conn.prepareStatement(sql);
+		 statement.setInt(1, this.getId());
+		 int rowsDeleted = statement.executeUpdate();
+		 if (rowsDeleted > 0) {
+		     System.out.println("A RDV was deleted successfully!");
+		 }
+	 }
+	// D\
+	
+	// CRUD/>
+		
+	// <getSet 
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public Date getDate_RDV() {
-		return date_RDV;
-	}
-	public void setDate_RDV(Date date_RDV) {
-		this.date_RDV = date_RDV;
 	}
 	
 	public int getHeure() {
@@ -92,19 +142,11 @@ public class RDV {
 		this.minutes = minutes;
 	}
 
-	public int getId_patient() {
-		return id_patient;
-	}
-
-	public void setId_patient(int id_patient) {
-		this.id_patient = id_patient;
-	}
-
-	public int getDone() {
+	public boolean getDone() {
 		return done;
 	}
 
-	public void setDone(int done) {
+	public void setDone(boolean done) {
 		this.done = done;
 	}
 
@@ -115,25 +157,44 @@ public class RDV {
 	public void setIdPatient(int idPatient) {
 		this.idPatient = idPatient;
 	}
-
-	public int getIdMedecin() {
-		return idMedecin;
-	}
-
-	public void setIdMedecin(int idMedecin) {
-		this.idMedecin = idMedecin;
-	} 
 	
 	@Override
 	public String toString() {
 		return "{" +
 			" id='" + getId() + "'" +
-			", date_RDV='" + getDate_RDV() + "'" +
+			", quand='" + getQuand() + "'" +
 			", heure='" + getHeure() + "'" +
 			", minutes='" + getMinute() + "'" +
 			", done='" + getDone() + "'" +
 			", idPatient='" + getIdPatient() + "'" +
-			", idMedecin='" + getIdMedecin() + "'" +
+			", creaDate='" + getCreaDate() + "'" +
+			", isOnline='" + isOnline() + "'" +
 			"}";
 	}
+
+	public Date getCreaDate() {
+		return creaDate;
+	}
+
+	public void setCreaDate(Date creaDate) {
+		this.creaDate = creaDate;
+	}
+
+	public boolean isOnline() {
+		return isOnline;
+	}
+
+	public void setOnline(boolean isOnline) {
+		this.isOnline = isOnline;
+	}
+
+	public Date getQuand() {
+		return quand;
+	}
+
+	public void setQuand(Date quand) {
+		this.quand = quand;
+	}
+	
+	// getSet/>
 }
