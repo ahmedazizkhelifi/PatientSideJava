@@ -191,6 +191,10 @@ public class Patient extends Personne {
   //methode filtrer (lister les patients) 
   //*************************************************************************
 
+  public String getFullName() {
+	  return this.getPrenom() + " " +  this.getNom().toUpperCase();
+  }
+  
   // ??
   public void payer() {
 

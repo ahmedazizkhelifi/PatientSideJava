@@ -4,6 +4,8 @@ import classes.CurrentUserData;
 import classes.Patient;
 import classes.RDVTV;
 import classes.Secretaire;
+import classes.Users;
+import classes.Consultation;
 import classes.ConsultationTV;
 
 import java.io.IOException;
@@ -27,7 +29,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -35,7 +39,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -44,7 +50,53 @@ public class MedecinController implements Initializable {
    private Stage stage;
    private Scene scene;
    private Parent root;
+   
+   @FXML
+   private Button __btnAddPatient;
 
+   @FXML
+   private Label __lblUserAccount;
+
+   @FXML
+   private AnchorPane __pnlLogin;
+
+   @FXML
+   private RadioButton __rbF;
+
+   @FXML
+   private RadioButton __rbH;
+
+   @FXML
+   private TextField __tfAdress;
+
+   @FXML
+   private DatePicker __tfBd;
+
+   @FXML
+   private TextField __tfNom;
+
+   @FXML
+   private TextField __tfPrenom;
+
+   @FXML
+   private TextField __tfTel;
+
+   @FXML
+   private Label _lblIdConsulta;
+
+   @FXML
+   private AnchorPane _pnlHider;
+
+   @FXML
+   private TextArea _tfConsultaDetails;
+
+   @FXML
+   private TextArea _tfConsultaOrdonnance;
+
+   @FXML
+   private TextField _tfConsultaPatientName;
+
+   
    @FXML
    private Button btnAcceuil;
 
@@ -300,7 +352,8 @@ public class MedecinController implements Initializable {
    @FXML
    private VBox vbSB1;
 
- 
+   ToggleGroup toggleGroup = new ToggleGroup();
+   
    private void initTv() throws SQLException {
       // Patient
 
@@ -378,19 +431,46 @@ public class MedecinController implements Initializable {
       } catch (SQLException e) {
          e.printStackTrace();
       }
-      System.out.println("Med Id:" + CurrentUserData.getRoleId());
+      _pnlHider.setVisible(true);
+      pnlMainHider.setVisible(false);
+      __rbH.setToggleGroup(toggleGroup);
+      __rbF.setToggleGroup(toggleGroup);
    }
    
    @FXML
-   void cellDoubleClicked(MouseEvent event) {
-      if (event.getSource() == tvPatients) {
-         if (event.getClickCount() == 2) {
-            System.out.println(tvPatients.getSelectionModel().getSelectedItem());
-            tpPatients1.getSelectionModel().select(1);
-         }
-      }
+   void cellDoubleClicked(MouseEvent event) throws SQLException {
+
+	   
+	   if (event.getSource() == tvConsulta) {
+           Consultation c = Consultation.readFromId(tvConsulta.getSelectionModel().getSelectedItem().getId());
+           _lblIdConsulta.setText(Integer.toString(c.getId()));
+           _tfConsultaDetails.setText(c.getDetails());
+           _tfConsultaOrdonnance.setText(c.getOrdonnance());
+           Patient p = Patient.getPatientFromId(c.getIdPatient());
+           _tfConsultaPatientName.setText(p.getFullName());
+           doubleClickNavigation( tpConsulta, event);
+           
+	   }
+	   
+	   if (event.getSource() == tvPatients) {
+		   doubleClickNavigation(tpConsulta, event);
+	   }
+	   
+	   if (event.getSource() == tvRV) {
+		   doubleClickNavigation(tpConsulta, event);
+	   }
+	   
+	   if (event.getSource() == tvSec) {
+		   doubleClickNavigation(tpConsulta, event);
+	   }
    }
 
+   private void doubleClickNavigation(TabPane tp, MouseEvent event) {
+	         if (event.getClickCount() == 2) {
+	            tp.getSelectionModel().select(1);
+	         }
+	     
+   }
    
    private void resetSecondaryNavigation() {
 	   pnlMainHider.setVisible(false);
@@ -452,7 +532,7 @@ public class MedecinController implements Initializable {
    }
 
    @FXML
-   private void handleClicks(ActionEvent event) {
+   private void handleClicks(ActionEvent event) throws SQLException {
       event.consume();
       if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
          where(0);
@@ -494,11 +574,30 @@ public class MedecinController implements Initializable {
       }
       
       if(event.getSource() == btnAddPatient) {
+    	  resetAjouterPat();
+    	  // w faregh l contenu taa lokhrin
     	  tpPatients1.getSelectionModel().select(2);
       }
       
       if(event.getSource() == btnAddConsulta) {
     	  tpConsulta.getSelectionModel().select(2);
+      }
+      
+      if (event.getSource() == __btnAddPatient) {
+    	  RadioButton selectedRadioButton = (RadioButton) toggleGroup.getSelectedToggle();
+			String sexe = selectedRadioButton.getText();
+			Patient p = new Patient(__tfNom.getText(), __tfPrenom.getText(), Date.valueOf(__tfBd.getValue()), __tfTel.getText(), sexe, __tfAdress.getText());
+			String _str = Integer.toString(Patient.getMaxPatientId());
+			Users u = new Users(_str, _str);
+			if (u.signUp(p)) {
+				System.out.println("user: " + _str);
+				__pnlLogin.setVisible(true);
+				__lblUserAccount.setText(_str);
+			}
+				
+			else
+				System.out.println("nope");
+				
       }
       
       
@@ -519,6 +618,14 @@ public class MedecinController implements Initializable {
          }
 
       }
+   }
+   
+   private void resetAjouterPat() {
+	   __tfPrenom.setText("");
+	   __tfNom.setText("");
+	   __tfAdress.setText("");
+	   __tfTel.setText("");
+	   __pnlLogin.setVisible(false);
    }
 
    // Debugging

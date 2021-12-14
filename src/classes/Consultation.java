@@ -17,11 +17,16 @@ public class Consultation {
    private int idRDV;
 
    private static Connection conn = Mysqlconnector.getConnection();
-   Consultation(int id, String details, String ordonnance, int id_patient, int idRdv) {
+   
+   public Consultation(int id, String details, String ordonnance, int id_patient, int idRdv) {
       this.id = id;
       this.details = details;
       this.idPatient = id_patient;
       this.idRDV = idRdv;
+   }
+   
+   public Consultation() {
+	   
    }
 
    // <CRUD
@@ -64,6 +69,22 @@ public class Consultation {
       }
       return listConsultation;
    }
+   
+   public static Consultation readFromId(int id) throws SQLException {
+	    String query = "SELECT * FROM consultation WHERE id = ?";
+	    Consultation c = new Consultation();
+	    PreparedStatement statement = conn.prepareStatement(query);
+	    statement.setInt(1, id);
+	    ResultSet result = statement.executeQuery();
+	    if (result.next()) {
+	      c.setId(result.getInt(1));
+	      c.setDetails(result.getString(2));
+	      c.setOrdonnance(result.getString(3));
+	      c.setIdPatient(result.getInt(4));
+	      c.setIdRDV(result.getInt(5));
+	    }
+	    return c;
+	  }
 
    // R\
 
