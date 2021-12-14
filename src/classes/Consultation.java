@@ -20,6 +20,7 @@ public class Consultation {
    
    public Consultation(int id, String details, String ordonnance, int id_patient, int idRdv) {
       this.id = id;
+      this.ordonnance = ordonnance;
       this.details = details;
       this.idPatient = id_patient;
       this.idRDV = idRdv;

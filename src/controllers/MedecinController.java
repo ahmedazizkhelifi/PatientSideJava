@@ -2,6 +2,7 @@ package controllers;
 
 import classes.CurrentUserData;
 import classes.Patient;
+import classes.RDV;
 import classes.RDVTV;
 import classes.Secretaire;
 import classes.Users;
@@ -51,6 +52,27 @@ public class MedecinController implements Initializable {
    private Scene scene;
    private Parent root;
    
+   @FXML
+   private Button ______btnAddConsulta11;
+
+   @FXML
+   private DatePicker ______dpReqRVDate;
+
+   @FXML
+   private DatePicker ______dpReqRVDate1;
+
+   @FXML
+   private TextField ______tfReqRVHeure;
+
+   @FXML
+   private TextField ______tfReqRVHeure1;
+
+   @FXML
+   private TextField ______tfReqRVMin;
+
+   @FXML
+   private TextField ______tfReqRVMin1;
+
 
    @FXML
    private Button __btnAddPatient;
@@ -110,11 +132,19 @@ public class MedecinController implements Initializable {
    private TextArea _tfConsultaDetails;
 
    @FXML
+   private TextArea _tfConsultaDetails1;
+
+   @FXML
    private TextArea _tfConsultaOrdonnance;
+
+   @FXML
+   private TextArea _tfConsultaOrdonnance1;
 
    @FXML
    private TextField _tfConsultaPatientName;
 
+   @FXML
+   private TextField _tfConsultaPatientName1;
    
    @FXML
    private Button btnAcceuil;
@@ -160,6 +190,8 @@ public class MedecinController implements Initializable {
 
    @FXML
    private Button btnParam;
+   @FXML
+   private Button btnAddConsulta1;
 
    @FXML
    private Button btnParam1;
@@ -450,7 +482,7 @@ public class MedecinController implements Initializable {
       } catch (SQLException e) {
          e.printStackTrace();
       }
-      //_pnlHider.setVisible(true);
+      _pnlHider.setVisible(true);
       pnlMainHider.setVisible(false);
       __rbH.setToggleGroup(toggleGroup);
       __rbF.setToggleGroup(toggleGroup);
@@ -518,7 +550,7 @@ public class MedecinController implements Initializable {
          lblWhere.setText("Patients");
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainPatients);
-         //pnlMainHider.setVisible(true);
+         pnlMainHider.setVisible(true);
 
          break;
       case 2:
@@ -526,19 +558,19 @@ public class MedecinController implements Initializable {
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainConsultations);
          tpConsulta.getSelectionModel().select(0);
-         //pnlMainHider.setVisible(true);
+         pnlMainHider.setVisible(true);
          break;
       case 3:
          lblWhere.setText("Rendez-vous");
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainRV);
-         //pnlMainHider.setVisible(true);
+         pnlMainHider.setVisible(true);
          break;
       case 4:
          lblWhere.setText("Secretaires");
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainSec);
-         //pnlMainHider.setVisible(true);
+         pnlMainHider.setVisible(true);
          break;
       case 5:
          lblWhere.setText("Agenda");
@@ -598,10 +630,10 @@ public class MedecinController implements Initializable {
     	  tpRV.getSelectionModel().select(2);
       }
       
-      if(event.getSource() == btnAddConsulta) {
-    	 
+      if(event.getSource() == btnAddConsulta) { 
     	  tabsMedecin.getSelectionModel().select(tabMainConsultations);
     	  tpConsulta.getSelectionModel().select(2);
+    	  _tfConsultaPatientName1.setText(__tfNom1.getText() + " " + __tfPrenom1.getText());
       }
       
       if(event.getSource() == btnAddPatient) {
@@ -630,9 +662,26 @@ public class MedecinController implements Initializable {
 				
       }
       
+      if(event.getSource() == btnAddConsulta1) {
+    	  Consultation c = new Consultation(-1,  _tfConsultaDetails1.getText(), _tfConsultaOrdonnance1.getText(), Integer.parseInt(__lblUserId1.getText()), -1);
+    	  System.out.println(c);
+    	  
+    	  c.create();
+    	  initTv();
+    	  tpConsulta.getSelectionModel().select(0);
+      }
+      
+      if(event.getSource() == ______btnAddConsulta11) { // ajouter rv
+    	  RDV r = new RDV(-1, Date.valueOf(______dpReqRVDate1.getValue()), Integer.parseInt(______tfReqRVMin1.getText()), Integer.parseInt(______tfReqRVHeure1.getText()), false,  Integer.parseInt(__lblUserId1.getText()), new Date(2000,1,1), false);
+    	  r.create();
+    	  initTv();
+    	  tpRV.getSelectionModel().select(0);
+      }
+      
+      
+
       
       if (event.getSource() == btnHide) {
-         System.out.println("mmm");
          if (vbSB.isVisible()) {
             vbSB.setVisible(false);
             tabsMedecin.setTranslateX(-265);

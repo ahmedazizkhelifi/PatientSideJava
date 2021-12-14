@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent; 
 import javafx.fxml.Initializable;
 
+import classes.Utilis;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -220,6 +222,11 @@ public class LoginController implements Initializable {
 			
 			// verif tel
 			if (tfTel.getText().strip() == "") {
+				reqTel.setVisible(true);
+				return false;
+			}
+			
+			if (!Utilis.checkTelf(tfTel.getText())) {
 				reqTel.setVisible(true);
 				return false;
 			}

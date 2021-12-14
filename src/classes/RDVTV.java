@@ -26,7 +26,7 @@ public class RDVTV {
 	}
 	
 	public static List < RDVTV > read() throws SQLException {
-		ArrayList<RDV> _patients = RDV.read(false, -1);
+		ArrayList<RDV> _patients = RDV.read(false, -1, false);
 		List < RDVTV > array = _patients.stream().map(r -> {
 			try {
 				return new RDVTV(r);

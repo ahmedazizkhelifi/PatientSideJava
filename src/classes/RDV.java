@@ -59,7 +59,7 @@ public class RDV {
    // C\
 
    // R
-   public static ArrayList < RDV > read(boolean isPatient, int idPatient) throws SQLException {
+   public static ArrayList < RDV > read(boolean isPatient, int idPatient, boolean demande) throws SQLException {
       String _query = "";
       if (isPatient)
          _query = "SELECT * FROM rdv " + "WHERE idPatient = " + idPatient;
@@ -69,6 +69,13 @@ public class RDV {
       ResultSet resultat = statement.executeQuery();
       ArrayList < RDV > RDVs = new ArrayList < RDV > ();
       while (resultat.next()) {
+    	  boolean _isOnline = resultat.getBoolean("isOnline");
+    	  if (demande) {
+    		  if (_isOnline) { // est demande
+        		  continue;
+        	  }
+    	  }
+    	 
          int _id = resultat.getInt(1);
          Date _quand = resultat.getDate("quand");
          int _heure = resultat.getInt("heure");
@@ -76,7 +83,7 @@ public class RDV {
          int _idPatient = resultat.getInt("idPatient");
          boolean _done = resultat.getBoolean("done");
          Date _creaDate = resultat.getDate("creaDate");
-         boolean _isOnline = resultat.getBoolean("isOnline");
+
          RDV rdv = new RDV(_id, _quand, _heure, _minute, _done, _idPatient, _creaDate, _isOnline);
          RDVs.add(rdv);
       }

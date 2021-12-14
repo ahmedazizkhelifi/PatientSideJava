@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -641,6 +642,60 @@
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                          <VBox layoutX="10.0" layoutY="14.0" prefHeight="576.0" prefWidth="955.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
+                                             <children>
+                                                <Label text="Patient">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="_tfConsultaPatientName1" editable="false" prefHeight="39.0" prefWidth="883.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label text="Details">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextArea fx:id="_tfConsultaDetails1" prefHeight="200.0" prefWidth="42.0" wrapText="true">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </TextArea>
+                                                <Label text="Ordonnance">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextArea fx:id="_tfConsultaOrdonnance1" prefHeight="200.0" prefWidth="855.0" wrapText="true">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </TextArea>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <Button fx:id="btnAddConsulta1" alignment="CENTER" layoutX="174.0" layoutY="597.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="561.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Ajouter Consultation" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="240.0">
+                                             <font>
+                                                <Font name="Monospaced Regular" size="18.0" />
+                                             </font>
+                                          </Button>
                                        </children></AnchorPane>
                                 </content>
                               </Tab>
@@ -664,7 +719,7 @@
                                           <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                           <AnchorPane layoutX="6.0" layoutY="3.0" prefHeight="63.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                                              <children>
-                                                <TextField fx:id="tfSearchRV" layoutX="49.0" layoutY="13.0" onAction="#handleSearch" prefHeight="35.0" prefWidth="357.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
+                                                <TextField fx:id="tfSearchRV" layoutX="49.0" layoutY="13.0" onAction="#handleSearch" prefHeight="35.0" prefWidth="599.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
                                                    <font>
                                                       <Font name="Monospaced Regular" size="18.0" />
                                                    </font>
@@ -674,7 +729,7 @@
                                                       <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_search_48px.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ComboBox fx:id="cbRV" layoutX="417.0" layoutY="13.0" prefHeight="36.0" prefWidth="299.0" AnchorPane.leftAnchor="417.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="13.0" />
+                                                <ComboBox fx:id="cbRV" layoutX="662.0" layoutY="13.0" prefHeight="36.0" prefWidth="299.0" AnchorPane.leftAnchor="662.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0" />
                                              </children>
                                           </AnchorPane>
                                           <TableView fx:id="tvRV" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
@@ -699,6 +754,49 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <VBox layoutX="22.0" layoutY="14.0" prefHeight="409.0" prefWidth="935.0" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="923.0" text="Date">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="50.0" />
+                                                   </padding>
+                                                </Label>
+                                                <DatePicker fx:id="______dpReqRVDate" prefHeight="45.0" prefWidth="1065.0" />
+                                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="1250.0" text="Temps">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="50.0" />
+                                                   </padding>
+                                                </Label>
+                                                <AnchorPane prefHeight="52.0" prefWidth="239.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" layoutX="449.0" layoutY="12.0" prefHeight="23.0" prefWidth="37.0" text=":">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="______tfReqRVHeure" layoutX="349.0" layoutY="6.0" prefHeight="35.0" prefWidth="84.0" promptText="Heure">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <TextField fx:id="______tfReqRVMin" layoutX="518.0" layoutY="9.0" prefHeight="35.0" prefWidth="90.0" promptText="Minute">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                             <padding>
+                                                <Insets top="50.0" />
+                                             </padding>
+                                          </VBox>
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -708,6 +806,54 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                          <Button fx:id="______btnAddConsulta11" alignment="CENTER" layoutX="207.0" layoutY="573.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="561.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Ajouter rendez-vous" textFill="WHITE">
+                                             <font>
+                                                <Font name="Monospaced Regular" size="18.0" />
+                                             </font>
+                                          </Button>
+                                          <VBox layoutX="21.0" layoutY="26.0" prefHeight="409.0" prefWidth="935.0">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="923.0" text="Date">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="50.0" />
+                                                   </padding>
+                                                </Label>
+                                                <DatePicker fx:id="______dpReqRVDate1" prefHeight="45.0" prefWidth="1065.0" />
+                                                <Label alignment="CENTER" prefHeight="23.0" prefWidth="1250.0" text="Temps">
+                                                   <font>
+                                                      <Font name="Monospaced Bold" size="18.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets bottom="10.0" top="50.0" />
+                                                   </padding>
+                                                </Label>
+                                                <AnchorPane prefHeight="52.0" prefWidth="239.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" layoutX="449.0" layoutY="12.0" prefHeight="23.0" prefWidth="37.0" text=":">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="______tfReqRVHeure1" layoutX="349.0" layoutY="6.0" prefHeight="35.0" prefWidth="84.0" promptText="Heure">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <TextField fx:id="______tfReqRVMin1" layoutX="518.0" layoutY="9.0" prefHeight="35.0" prefWidth="90.0" promptText="Minute">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                             <padding>
+                                                <Insets top="50.0" />
+                                             </padding>
+                                          </VBox>
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -782,6 +928,70 @@
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="639.0" prefWidth="967.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                                <TextField fx:id="__tfAdress1" layoutX="56.0" layoutY="246.0" prefHeight="35.0" prefWidth="848.0" promptText="Adresse" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <TextField fx:id="__tfNom2" layoutX="56.0" layoutY="130.0" prefHeight="35.0" prefWidth="852.0" promptText="NOM" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <DatePicker fx:id="__tfBd1" layoutX="56.0" layoutY="355.0" prefHeight="35.0" prefWidth="847.0" promptText="Date de naissance" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+                                                <TextField fx:id="__tfTel2" layoutX="55.0" layoutY="298.0" prefHeight="35.0" prefWidth="847.0" promptText="Tél" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <TextField fx:id="__tfPrenom2" layoutX="55.0" layoutY="84.0" prefHeight="35.0" prefWidth="853.0" promptText="Prénom" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button fx:id="__btnAddPatient1" alignment="CENTER" layoutX="325.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="70.0" prefWidth="336.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Ajouter" textFill="WHITE" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="314.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <AnchorPane layoutX="162.0" layoutY="188.0" prefHeight="45.0" prefWidth="576.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="237.0">
+                                                   <children>
+                                                      <RadioButton fx:id="__rbH1" layoutX="133.0" layoutY="16.0" mnemonicParsing="false" selected="true" text="Homme">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="17.0" />
+                                                         </font>
+                                                      </RadioButton>
+                                                      <RadioButton fx:id="__rbF1" layoutX="371.0" layoutY="14.0" mnemonicParsing="false" text="Femme">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="17.0" />
+                                                         </font>
+                                                      </RadioButton>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane fx:id="__pnlLogin1" layoutX="172.0" layoutY="437.0" prefHeight="30.0" prefWidth="631.0" AnchorPane.bottomAnchor="116.0" AnchorPane.leftAnchor="172.0" AnchorPane.rightAnchor="172.0">
+                                                   <children>
+                                                      <Label layoutX="158.0" layoutY="47.0" text="Secretaire ajouté avec succès" textFill="GREEN">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="141.0" layoutY="70.0" text="les coordonnées du compte :">
+                                                         <font>
+                                                            <Font name="Monospaced Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="__lblUserAccount1" layoutX="446.0" layoutY="70.0" text="0000">
+                                                         <font>
+                                                            <Font name="Monospaced Regular" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
                                        </children></AnchorPane>
                                 </content>
                               </Tab>
@@ -796,6 +1006,39 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <AnchorPane layoutX="6.0" layoutY="3.0" prefHeight="63.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                                 <children>
+                                    <TextField fx:id="tfSearchRV1" layoutX="49.0" layoutY="13.0" onAction="#handleSearch" prefHeight="35.0" prefWidth="599.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <image>
+                                          <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_search_48px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ComboBox fx:id="cbRV1" layoutX="662.0" layoutY="13.0" prefHeight="36.0" prefWidth="299.0" AnchorPane.leftAnchor="662.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0" />
+                                 </children>
+                              </AnchorPane>
+                              <TableView fx:id="tvRV1" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcRVId1" prefWidth="44.0" text="ID" />
+                                    <TableColumn fx:id="tcRVQuand1" prefWidth="270.0" text="Date" />
+                                    <TableColumn fx:id="tcRVTemps1" prefWidth="169.0" text="Temps" />
+                                    <TableColumn fx:id="tcRVIdPatient1" prefWidth="85.0" text="ID Patient" />
+                                    <TableColumn fx:id="tcRVNomPatient1" prefWidth="85.0" text="Nom Patient" />
+                                    <TableColumn fx:id="tcRVPrenomPatient1" prefWidth="85.0" text="Prénom Patient" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </content>
@@ -815,6 +1058,31 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextField fx:id="tfUsername" layoutX="271.0" layoutY="177.0" prefHeight="25.0" prefWidth="364.0" promptText="Nom d'utilisateur" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="340.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </TextField>
+                        <PasswordField fx:id="tfPassword" layoutX="271.0" layoutY="224.0" prefHeight="25.0" prefWidth="364.0" promptText="Mot de passe" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="340.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </PasswordField>
+                        <Button fx:id="btnLogin" layoutX="323.0" layoutY="273.0" mnemonicParsing="false" onAction="#Login" prefHeight="65.0" prefWidth="228.0" styleClass="inBlue-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="Se connecter" AnchorPane.bottomAnchor="337.0" AnchorPane.leftAnchor="323.0" AnchorPane.rightAnchor="424.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="404.0" layoutY="42.0" text="Compte">
+                           <font>
+                              <Font name="Monospaced Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="tfPassword1" layoutX="271.0" layoutY="76.0" prefHeight="25.0" prefWidth="364.0" promptText="Mot de passe actuel" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="340.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </PasswordField>
                      </children>
                   </AnchorPane>
                </content>

@@ -38,6 +38,8 @@ import classes.RDV;
 
 public class PatientController implements Initializable{
 	
+	
+	
 
 
     @FXML
@@ -239,7 +241,7 @@ public class PatientController implements Initializable{
 	
 	private void initTV() throws SQLException{
 		RDV rdv = new RDV();
-		ArrayList<RDV> _RDVs = rdv.read(true, p.getId());
+		ArrayList<RDV> _RDVs = rdv.read(true, p.getId(), false);
 		System.out.println(_RDVs);
 		
 		tcRVId.setCellValueFactory(new PropertyValueFactory<RDV, Integer>("id"));
@@ -340,9 +342,8 @@ public class PatientController implements Initializable{
     }
     
     void tabRVDetails(RDV rdv) {
-    	Tab tab1 = new Tab(Integer.toString(rdv.getId()));
-    	tabsRV.getTabs().add(tab1);
-    	tabsRV.getSelectionModel().select(tab1);
+    	
+    	tabsRV.getSelectionModel().select(2);
     	
     }
 

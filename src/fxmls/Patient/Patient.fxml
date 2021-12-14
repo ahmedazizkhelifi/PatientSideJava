@@ -398,7 +398,7 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvConsultations" layoutX="14.0" layoutY="67.0" onMouseClicked="#cellDoubleClicked" prefHeight="564.0" prefWidth="945.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="67.0">
+                                          <TableView fx:id="tvConsultations" layoutX="14.0" layoutY="67.0" onMouseClicked="#cellDoubleClicked" prefHeight="564.0" prefWidth="945.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="67.0">
                                             <columns>
                                               <TableColumn fx:id="tcConsultaId" prefWidth="75.0" text="ID" />
                                               <TableColumn fx:id="tcConsultaDate" prefWidth="387.0" text="Date" />
@@ -471,22 +471,22 @@
                                                       <Font name="Monospaced Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" layoutX="456.0" layoutY="270.0" prefHeight="23.0" prefWidth="70.0" text="Minute" AnchorPane.leftAnchor="459.0" AnchorPane.rightAnchor="446.0">
+                                                <Label alignment="CENTER" layoutX="474.0" layoutY="230.0" prefHeight="23.0" prefWidth="37.0" text=":" AnchorPane.leftAnchor="474.0" AnchorPane.rightAnchor="464.0">
                                                    <font>
                                                       <Font name="Monospaced Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" layoutX="459.0" layoutY="191.0" prefHeight="23.0" prefWidth="60.0" text="Heure" AnchorPane.leftAnchor="459.0" AnchorPane.rightAnchor="456.0">
+                                                <Label alignment="CENTER" layoutX="459.0" layoutY="191.0" prefHeight="23.0" prefWidth="60.0" text="Temps" AnchorPane.leftAnchor="459.0" AnchorPane.rightAnchor="456.0">
                                                    <font>
                                                       <Font name="Monospaced Bold" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="tfReqRVHeure" layoutX="400.0" layoutY="223.0" prefHeight="35.0" prefWidth="177.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="398.0">
+                                                <TextField fx:id="tfReqRVHeure" layoutX="392.0" layoutY="224.0" prefHeight="35.0" prefWidth="84.0" promptText="Heure" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="499.0">
                                                    <font>
                                                       <Font name="Monospaced Regular" size="18.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField fx:id="tfReqRVMin" layoutX="400.0" layoutY="306.0" prefHeight="35.0" prefWidth="177.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="398.0">
+                                                <TextField fx:id="tfReqRVMin" layoutX="504.0" layoutY="224.0" prefHeight="35.0" prefWidth="90.0" promptText="Minute" AnchorPane.leftAnchor="504.0" AnchorPane.rightAnchor="381.0">
                                                    <font>
                                                       <Font name="Monospaced Regular" size="18.0" />
                                                    </font>
@@ -614,11 +614,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane fx:id="pnlRVHider" layoutX="337.0" layoutY="10.0" prefHeight="100.0" prefWidth="975.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="10.0">
-         <children>
-            <Label layoutX="20.0" layoutY="78.0" text="btn retoir" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="pnlRVHider" layoutX="337.0" layoutY="10.0" prefHeight="100.0" prefWidth="975.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="10.0" />
       <AnchorPane layoutX="6.0" prefHeight="82.0" prefWidth="336.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="btnHide" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="17.0" prefWidth="29.0" style="-fx-background-color: white; -fx-cursor: hand;">
