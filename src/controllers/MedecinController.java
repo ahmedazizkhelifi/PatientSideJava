@@ -1,16 +1,25 @@
 package controllers;
 
 import classes.CurrentUserData;
+import classes.Patient;
+import classes.RDVTV;
+import classes.Secretaire;
+import classes.ConsultationTV;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.IntStream;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.Initializable;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -27,413 +36,506 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-
-
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class MedecinController implements Initializable {
-	
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
-	
 
-    @FXML
-    private Button btnAcceuil;
+   private Stage stage;
+   private Scene scene;
+   private Parent root;
 
-    @FXML
-    private Button btnAcceuil1;
+   @FXML
+   private Button btnAcceuil;
 
-    @FXML
-    private Button btnAddConsulta;
+   @FXML
+   private Button btnAcceuil1;
 
-    @FXML
-    private Button btnAddPatient;
+   @FXML
+   private Button btnAddConsulta;
 
-    @FXML
-    private Button btnAddSec;
+   @FXML
+   private Button btnAddPatient;
 
-    @FXML
-    private Button btnAgenda;
+   @FXML
+   private Button btnAddRV;
 
-    @FXML
-    private Button btnAgenda1;
+   @FXML
+   private Button btnAddSec;
 
-    @FXML
-    private Button btnCompta;
+   @FXML
+   private Button btnAgenda;
 
-    @FXML
-    private Button btnCompta1;
+   @FXML
+   private Button btnAgenda1;
 
-    @FXML
-    private Button btnConsultations;
+   @FXML
+   private Button btnCompta;
 
-    @FXML
-    private Button btnConsultations1;
+   @FXML
+   private Button btnCompta1;
 
-    @FXML
-    private Button btnHide;
+   @FXML
+   private Button btnConsultations;
 
-    @FXML
-    private Button btnLogout;
+   @FXML
+   private Button btnConsultations1;
 
-    @FXML
-    private Button btnParam;
+   @FXML
+   private Button btnHide;
 
-    @FXML
-    private Button btnParam1;
+   @FXML
+   private Button btnLogout;
 
-    @FXML
-    private Button btnPatients;
+   @FXML
+   private Button btnParam;
 
-    @FXML
-    private Button btnPatients1;
+   @FXML
+   private Button btnParam1;
 
-    @FXML
-    private Button btnRV;
+   @FXML
+   private Button btnPatients;
 
-    @FXML
-    private Button btnRV1;
+   @FXML
+   private Button btnPatients1;
 
-    @FXML
-    private Button btnSecretaire;
+   @FXML
+   private Button btnRV;
 
-    @FXML
-    private Button btnSecretaires1;
+   @FXML
+   private Button btnRV1;
 
-    @FXML
-    private ComboBox<?> cbPatient;
+   @FXML
+   private Button btnSecretaire;
 
-    @FXML
-    private ComboBox<?> cbSearchConsulta;
+   @FXML
+   private Button btnSecretaires1;
 
-    @FXML
-    private ComboBox<?> cbSec;
+   @FXML
+   private ComboBox < ? > cbPatient;
 
-    @FXML
-    private Label lblWhere;
+   @FXML
+   private ComboBox < ? > cbRV;
 
-    @FXML
-    private AnchorPane pnlMainHider;
+   @FXML
+   private ComboBox < ? > cbSearchConsulta;
 
-    @FXML
-    private Tab tabAcceuil;
+   @FXML
+   private ComboBox < ? > cbSec;
 
-    @FXML
-    private Tab tabAddConsulta;
+   @FXML
+   private Label lblWhere;
 
-    @FXML
-    private Tab tabAddSec;
+   @FXML
+   private AnchorPane pnlMainHider;
 
-    @FXML
-    private Tab tabCompta;
+   @FXML
+   private Tab tabAcceuil;
 
-    @FXML
-    private Tab tabConsultaDetails;
+   @FXML
+   private Tab tabAddConsulta;
 
-    @FXML
-    private Tab tabConsultations;
+   @FXML
+   private Tab tabAddRV;
 
-    @FXML
-    private Tab tabMainAgenda;
+   @FXML
+   private Tab tabAddSec;
 
-    @FXML
-    private Tab tabMainConsultations;
+   @FXML
+   private Tab tabCompta;
 
-    @FXML
-    private Tab tabMainPatients;
+   @FXML
+   private Tab tabConsultaDetails;
 
-    @FXML
-    private Tab tabMainRV;
+   @FXML
+   private Tab tabConsultations;
 
-    @FXML
-    private Tab tabMainSec;
+   @FXML
+   private Tab tabMainAgenda;
 
-    @FXML
-    private Tab tabParam;
+   @FXML
+   private Tab tabMainConsultations;
 
-    @FXML
-    private Tab tabPatients;
+   @FXML
+   private Tab tabMainPatients;
 
-    @FXML
-    private Tab tabProfilPatient;
+   @FXML
+   private Tab tabMainRV;
 
-    @FXML
-    private Tab tabSec;
+   @FXML
+   private Tab tabMainSec;
 
-    @FXML
-    private Tab tabSecProfil;
+   @FXML
+   private Tab tabParam;
 
-    @FXML
-    private TabPane tabsMedecin;
+   @FXML
+   private Tab tabPatients;
 
-    @FXML
-    private TableColumn<?, ?> tcConsultaId;
+   @FXML
+   private Tab tabProfilPatient;
 
-    @FXML
-    private TableColumn<?, ?> tcConsultaIdPatient;
+   @FXML
+   private Tab tabRV;
 
-    @FXML
-    private TableColumn<?, ?> tcConsultaNomPatient;
+   @FXML
+   private Tab tabRVDetails;
 
-    @FXML
-    private TableColumn<?, ?> tcConsultaPrenomPatient;
+   @FXML
+   private Tab tabSec;
 
-    @FXML
-    private TableColumn<?, ?> tcPatientBD;
+   @FXML
+   private Tab tabSecProfil;
 
-    @FXML
-    private TableColumn<?, ?> tcPatientId;
+   @FXML
+   private TabPane tabsMedecin;
 
-    @FXML
-    private TableColumn<?, ?> tcPatientNom;
+   @FXML
+   private TableColumn < ConsultationTV , Integer > tcConsultaId;
 
-    @FXML
-    private TableColumn<?, ?> tcPatientPrenom;
+   @FXML
+   private TableColumn < ConsultationTV , Integer > tcConsultaIdPatient;
 
-    @FXML
-    private TableColumn<?, ?> tcPatientSexe;
+   @FXML
+   private TableColumn < ConsultationTV , String > tcConsultaNomPatient;
 
-    @FXML
-    private TableColumn<?, ?> tcPatientTelf;
+   @FXML
+   private TableColumn < ConsultationTV , String > tcConsultaPrenomPatient;
 
-    @FXML
-    private TextField tfSearchConsulta;
+   @FXML
+   private TableColumn < Patient, Date > tcPatientBD;
 
-    @FXML
-    private TextField tfSearchPatient;
+   @FXML
+   private TableColumn < Patient, Integer > tcPatientId;
 
-    @FXML
-    private TextField tfSearchSec;
+   @FXML
+   private TableColumn < Patient, String > tcPatientNom;
 
-    @FXML
-    private TabPane tpConsulta;
+   @FXML
+   private TableColumn < Patient, String > tcPatientPrenom;
 
-    @FXML
-    private TabPane tpPatients1;
+   @FXML
+   private TableColumn < Patient, String > tcPatientSexe;
 
-    @FXML
-    private TabPane tpSec;
+   @FXML
+   private TableColumn < Patient, String > tcPatientTelf;
 
-    @FXML
-    private TableView<?> tvConsulta;
+   @FXML
+   private TableColumn < RDVTV, Integer > tcRVId;
 
-    @FXML
-    private TableView<?> tvPatients;
+   @FXML
+   private TableColumn < RDVTV, Integer > tcRVIdPatient;
 
-    @FXML
-    private TableView<?> tvSec;
+   @FXML
+   private TableColumn < RDVTV, String > tcRVNomPatient;
 
-    @FXML
-    private TableColumn<?, ?> tvSecBD;
+   @FXML
+   private TableColumn < RDVTV, String > tcRVPrenomPatient;
 
-    @FXML
-    private TableColumn<?, ?> tvSecId;
+   @FXML
+   private TableColumn < RDVTV, Date > tcRVQuand;
 
-    @FXML
-    private TableColumn<?, ?> tvSecNom;
+   @FXML
+   private TableColumn < RDVTV, String > tcRVTemps;
 
-    @FXML
-    private TableColumn<?, ?> tvSecPrenom;
+   @FXML
+   private TableColumn < Secretaire , Date > tcSecBD;
 
-    @FXML
-    private TableColumn<?, ?> tvSecSalaire;
+   @FXML
+   private TableColumn < Secretaire , Integer > tcSecId;
 
-    @FXML
-    private TableColumn<?, ?> tvSecSexe;
+   @FXML
+   private TableColumn < Secretaire , String > tcSecNom;
 
-    @FXML
-    private TableColumn<?, ?> tvSecTelf;
+   @FXML
+   private TableColumn < Secretaire , String > tcSecPrenom;
 
-    @FXML
-    private VBox vbSB;
+   @FXML
+   private TableColumn < Secretaire , Float > tcSecSalaire;
 
-    @FXML
-    private VBox vbSB1;
-    
+   @FXML
+   private TableColumn < Secretaire , String > tcSecSexe;
+
+   @FXML
+   private TableColumn < Secretaire , String > tcSecTelf;
+
+   @FXML
+   private TextField tfSearchConsulta;
+
+   @FXML
+   private TextField tfSearchPatient;
+
+   @FXML
+   private TextField tfSearchRV;
+
+   @FXML
+   private TextField tfSearchSec;
+
+   @FXML
+   private TabPane tpConsulta;
+
+   @FXML
+   private TabPane tpPatients1;
+
+   @FXML
+   private TabPane tpRV;
+
+   @FXML
+   private TabPane tpSec;
+
+   @FXML
+   private TableView < ConsultationTV > tvConsulta;
+
+   @FXML
+   private TableView < Patient > tvPatients;
+
+   @FXML
+   private TableView < RDVTV > tvRV;
+
+   @FXML
+   private TableView < Secretaire > tvSec;
+
+   @FXML
+   private VBox vbSB;
+
+   @FXML
+   private VBox vbSB1;
+
+ 
+   private void initTv() throws SQLException {
+      // Patient
+
+      ArrayList < Patient > _patients = Patient.readPatients();
+      tcPatientId.setCellValueFactory(new PropertyValueFactory < Patient, Integer > ("id"));
+      tcPatientNom.setCellValueFactory(new PropertyValueFactory < Patient, String > ("nom"));
+      tcPatientPrenom.setCellValueFactory(new PropertyValueFactory < Patient, String > ("prenom"));
+      tcPatientBD.setCellValueFactory(new PropertyValueFactory < Patient, Date > ("date_ness"));
+      tcPatientTelf.setCellValueFactory(new PropertyValueFactory < Patient, String > ("telf"));
+      tcPatientSexe.setCellValueFactory(new PropertyValueFactory < Patient, String > ("sexe"));
+      ObservableList < Patient > patients = FXCollections.observableArrayList(_patients);
+      tvPatients.setItems(patients);
+
+      // RDV
+      List < RDVTV > _rdvtv = RDVTV.read();
+      tcRVId.setCellValueFactory(new PropertyValueFactory < RDVTV, Integer > ("id"));
+      tcRVQuand.setCellValueFactory(new PropertyValueFactory < RDVTV, Date > ("quand"));
+      tcRVTemps.setCellValueFactory(new PropertyValueFactory < RDVTV, String > ("temps"));
+      tcRVIdPatient.setCellValueFactory(new PropertyValueFactory < RDVTV, Integer > ("idPatient"));
+      tcRVNomPatient.setCellValueFactory(new PropertyValueFactory < RDVTV, String > ("nomPatient"));
+      tcRVPrenomPatient.setCellValueFactory(new PropertyValueFactory < RDVTV, String > ("prenomPatient"));
+      ObservableList < RDVTV > rdvtv = FXCollections.observableList(_rdvtv);
+      tvRV.setItems(rdvtv);
+      
+      // Secretaire
+      
+      ArrayList < Secretaire > _secretaires = Secretaire.read();
+      tcSecId.setCellValueFactory(new PropertyValueFactory < Secretaire, Integer > ("id"));
+      tcSecNom.setCellValueFactory(new PropertyValueFactory < Secretaire, String > ("nom"));
+      tcSecPrenom.setCellValueFactory(new PropertyValueFactory < Secretaire, String > ("prenom"));
+      tcSecBD.setCellValueFactory(new PropertyValueFactory < Secretaire, Date > ("date_ness"));
+      tcSecTelf.setCellValueFactory(new PropertyValueFactory < Secretaire, String > ("telf"));
+      tcSecSexe.setCellValueFactory(new PropertyValueFactory < Secretaire, String > ("sexe"));
+      tcSecSalaire.setCellValueFactory(new PropertyValueFactory < Secretaire, Float > ("adresse"));
+      ObservableList < Secretaire > secretaires = FXCollections.observableArrayList(_secretaires);
+      tvSec.setItems(secretaires);
+
+      // Consultations
+      List < ConsultationTV > _consultationTV = ConsultationTV.read();
+      tcConsultaId.setCellValueFactory(new PropertyValueFactory < ConsultationTV, Integer > ("id"));
+      tcConsultaIdPatient.setCellValueFactory(new PropertyValueFactory < ConsultationTV, Integer > ("idPatient"));
+      tcConsultaNomPatient.setCellValueFactory(new PropertyValueFactory < ConsultationTV, String > ("nomPatient"));
+      tcConsultaPrenomPatient.setCellValueFactory(new PropertyValueFactory < ConsultationTV, String > ("prenomPatient"));
+      
+      ObservableList < ConsultationTV > consultationTV = FXCollections.observableList(_consultationTV);
+      tvConsulta.setItems(consultationTV);
+      
+   }
+
+   public void logOut(ActionEvent event) throws IOException {
+      root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
+      stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+      scene = new Scene(root);
+      stage.setScene(scene);
+      System.out.println(stage);
+      stage.show();
+   }
+
+   @FXML
+   private void receiveData(ActionEvent event) {
+      System.out.println(event.getSource());
+      // Step 1
+      Node node = (Node) event.getSource();
+      Stage stage = (Stage) node.getScene().getWindow();
+      // Step 2
+      String str = (String) stage.getUserData();
+      // Step 3
+      System.out.println("str" + str);
+   }
+
+   @Override
+   public void initialize(URL arg0, ResourceBundle arg1) {
+      try {
+         initTv();
+      } catch (SQLException e) {
+         e.printStackTrace();
+      }
+      System.out.println("Med Id:" + CurrentUserData.getRoleId());
+   }
    
-	
-	public void logOut(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		System.out.println(stage);
-		stage.show();
-	}
-    
-    @FXML
-	private void receiveData(ActionEvent event) {
-		System.out.println(event.getSource());
-	  // Step 1
-	  Node node = (Node) event.getSource();
-	  Stage stage = (Stage) node.getScene().getWindow();
-	  // Step 2
-	  String str = (String) stage.getUserData();
-	  // Step 3
-	  System.out.println("str" + str);
-	}
-	    
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("Med Id:" +CurrentUserData.getRoleId());
-	}
-	
-	private void where(int here) {
-		switch(here) {
-		case 0:
-			lblWhere.setText("Acceuil");
-			tabsMedecin.getSelectionModel().select(tabAcceuil);
-			pnlMainHider.setVisible(false);
-			break;
-		case 1:
-			lblWhere.setText("Patients");
-			tabsMedecin.getSelectionModel().select(tabMainPatients);
-			pnlMainHider.setVisible(true);
-			
-			break;
-		case 2:
-			lblWhere.setText("Consultations");
-			tabsMedecin.getSelectionModel().select(tabMainConsultations);
-			pnlMainHider.setVisible(true);
-			break;
-		case 3:
-			lblWhere.setText("Rendez-vous");
-			tabsMedecin.getSelectionModel().select(tabMainRV);
-			pnlMainHider.setVisible(true);
-			break;
-		case 4:
-			lblWhere.setText("Secretaires");
-			tabsMedecin.getSelectionModel().select(tabMainSec);
-			pnlMainHider.setVisible(true);
-			break;
-		case 5:
-			lblWhere.setText("Agenda");
-			tabsMedecin.getSelectionModel().select(tabMainAgenda);
-			pnlMainHider.setVisible(false);
-			break;
-		case 6:
-			lblWhere.setText("Comptabilité");
-			tabsMedecin.getSelectionModel().select(tabCompta);
-			pnlMainHider.setVisible(false);
-			break;
-		case 7:
-			lblWhere.setText("Paramètres");
-			tabsMedecin.getSelectionModel().select(tabParam);
-			pnlMainHider.setVisible(false);
-			break;
-		}
-	}
-	
+   @FXML
+   void cellDoubleClicked(MouseEvent event) {
+      if (event.getSource() == tvPatients) {
+         if (event.getClickCount() == 2) {
+            System.out.println(tvPatients.getSelectionModel().getSelectedItem());
+            tpPatients1.getSelectionModel().select(1);
+         }
+      }
+   }
 
-	
-	 @FXML
-	private void handleClicks (ActionEvent event) {
-		event.consume();
-		if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
-			where(0);
-		}
-		
-		if (event.getSource() == btnPatients || event.getSource() == btnPatients1) {
-			where(1);
-			
-		}
-		
-		if (event.getSource() == btnConsultations || event.getSource() == btnConsultations1) {
-			where(2);
-			
-		}
-		
-		if (event.getSource() == btnRV || event.getSource() == btnRV1) {
-			where(3);
-		}
-		
-		if (event.getSource() == btnSecretaire || event.getSource() == btnSecretaires1) {
-			where(4);
-		}
-		if (event.getSource() == btnAgenda || event.getSource() == btnAgenda1) {
-			where(5);
-		}
-		if (event.getSource() == btnCompta || event.getSource() == btnCompta1) {
-			where(6);
-		}
-		if (event.getSource() == btnParam || event.getSource() == btnParam1) {
-			where(7);
-		}
-		if (event.getSource() == btnHide) {
-			System.out.println("mmm");
-			if(vbSB.isVisible()) {
-				vbSB.setVisible(false);
-				tabsMedecin.setTranslateX(-265);
-				//tabsMedecin.setPrefWidth(1105);
-				System.out.println(tabsMedecin.getPrefWidth());
-				System.out.println(tabsMedecin.getMaxWidth());
-				
-				vbSB1.setVisible(true);
-			}
-			else {
-				vbSB.setVisible(true);
-				tabsMedecin.setTranslateX(1);
-				vbSB1.setVisible(false);
-			}
-			
-			
-			
-		}
-	}
-	
-	 
-	 // Debugging
-	  @FXML
-	    private void printSource(ActionEvent event) {
-	        event.consume();
-	        if (event.getSource() == btnPatients) {
-	        	System.out.println("mkllmkmlk");
-	       
-	        }
-	        else if (event.getSource() == btnConsultations) {
-	        	System.out.println(event.getSource().toString());
-	        	tabsMedecin.getSelectionModel().select(1);
-	        }
-	    }
-	  
+   
+   private void resetSecondaryNavigation() {
+	   pnlMainHider.setVisible(false);
+	   tpPatients1.getSelectionModel().select(0);
+	   tpConsulta.getSelectionModel().select(0);
+	   tpRV.getSelectionModel().select(0);
+	   tpSec.getSelectionModel().select(0);
+   }
 
-	    @FXML
-	    void handleSearch(ActionEvent event) {
+   private void where(int here) {
+      switch (here) {
+      case 0:
+         lblWhere.setText("Acceuil");
+         tabsMedecin.getSelectionModel().select(tabAcceuil);
+         resetSecondaryNavigation();
+         break;
+      case 1:
+         lblWhere.setText("Patients");
+         resetSecondaryNavigation();
+         tabsMedecin.getSelectionModel().select(tabMainPatients);
+         pnlMainHider.setVisible(true);
 
-	    }
+         break;
+      case 2:
+         lblWhere.setText("Consultations");
+         resetSecondaryNavigation();
+         tabsMedecin.getSelectionModel().select(tabMainConsultations);
+         tpConsulta.getSelectionModel().select(0);
+         pnlMainHider.setVisible(true);
+         break;
+      case 3:
+         lblWhere.setText("Rendez-vous");
+         resetSecondaryNavigation();
+         tabsMedecin.getSelectionModel().select(tabMainRV);
+         pnlMainHider.setVisible(true);
+         break;
+      case 4:
+         lblWhere.setText("Secretaires");
+         resetSecondaryNavigation();
+         tabsMedecin.getSelectionModel().select(tabMainSec);
+         pnlMainHider.setVisible(true);
+         break;
+      case 5:
+         lblWhere.setText("Agenda");
+         resetSecondaryNavigation();
+         tabsMedecin.getSelectionModel().select(tabMainAgenda);
+         break;
+      case 6:
+         lblWhere.setText("Comptabilité");
+         tabsMedecin.getSelectionModel().select(tabCompta);
+         resetSecondaryNavigation();
+         break;
+      case 7:
+         lblWhere.setText("Paramètres");
+         tabsMedecin.getSelectionModel().select(tabParam);
+         resetSecondaryNavigation();
+         break;
+      }
+   }
+
+   @FXML
+   private void handleClicks(ActionEvent event) {
+      event.consume();
+      if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
+         where(0);
+      }
+
+      if (event.getSource() == btnPatients || event.getSource() == btnPatients1) {
+         where(1);
+
+      }
+
+      if (event.getSource() == btnConsultations || event.getSource() == btnConsultations1) {
+         where(2);
+
+      }
+
+      if (event.getSource() == btnRV || event.getSource() == btnRV1) {
+         where(3);
+      }
+
+      if (event.getSource() == btnSecretaire || event.getSource() == btnSecretaires1) {
+         where(4);
+      }
+      if (event.getSource() == btnAgenda || event.getSource() == btnAgenda1) {
+         where(5);
+      }
+      if (event.getSource() == btnCompta || event.getSource() == btnCompta1) {
+         where(6);
+      }
+      if (event.getSource() == btnParam || event.getSource() == btnParam1) {
+         where(7);
+      }
+      
+      if(event.getSource() == btnAddRV) {
+    	  tpRV.getSelectionModel().select(2);
+      }
+      
+      if(event.getSource() == btnAddSec) {
+    	  tpSec.getSelectionModel().select(2);
+      }
+      
+      if(event.getSource() == btnAddPatient) {
+    	  tpPatients1.getSelectionModel().select(2);
+      }
+      
+      if(event.getSource() == btnAddConsulta) {
+    	  tpConsulta.getSelectionModel().select(2);
+      }
+      
+      
+      if (event.getSource() == btnHide) {
+         System.out.println("mmm");
+         if (vbSB.isVisible()) {
+            vbSB.setVisible(false);
+            tabsMedecin.setTranslateX(-265);
+            //tabsMedecin.setPrefWidth(1105);
+            System.out.println(tabsMedecin.getPrefWidth());
+            System.out.println(tabsMedecin.getMaxWidth());
+
+            vbSB1.setVisible(true);
+         } else {
+            vbSB.setVisible(true);
+            tabsMedecin.setTranslateX(1);
+            vbSB1.setVisible(false);
+         }
+
+      }
+   }
+
+   // Debugging
+   @FXML
+   private void printSource(ActionEvent event) {
+      event.consume();
+      if (event.getSource() == btnPatients) {
+         System.out.println("mkllmkmlk");
+
+      } else if (event.getSource() == btnConsultations) {
+         System.out.println(event.getSource().toString());
+         tabsMedecin.getSelectionModel().select(1);
+      }
+   }
+
+   @FXML
+   void handleSearch(ActionEvent event) {
+
+   }
 }
-
-	
-/*
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-
-public class SampleController {
-
-    @FXML
-    private Button btnPatients;
-
-    @FXML
-    private Label lbl1;
-
-    @FXML
-    private Label lbl2;
-
-    @FXML
-    private Button ptnConsultations;
-
-    @FXML
-    private Tab tabConsultations;
-
-    @FXML
-    private TabPane tabMed;
-
-    @FXML
-    private Tab tabPatients;
-
-}
-
-*/

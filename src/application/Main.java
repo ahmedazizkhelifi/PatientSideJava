@@ -1,5 +1,7 @@
 package application;
-	
+
+import classes.RDVTV;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,6 +19,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			System.out.println(RDVTV.read());
+			
 			window = primaryStage;
 			// Login scene
 			AnchorPane loginRoot= (AnchorPane)FXMLLoader.load(getClass().getResource("/fxmls/Login/Login.fxml"));

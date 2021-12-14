@@ -59,7 +59,7 @@ public class RDV {
    // C\
 
    // R
-   public ArrayList < RDV > read(boolean isPatient, int idPatient) throws SQLException {
+   public static ArrayList < RDV > read(boolean isPatient, int idPatient) throws SQLException {
       String _query = "";
       if (isPatient)
          _query = "SELECT * FROM rdv " + "WHERE idPatient = " + idPatient;

@@ -24,7 +24,7 @@
 }
 
 .table-row-cell {
-  -fx-background-color: -fx-table-cell-border-color, #C5CED9;
+  -fx-background-color: -fx-table-cell-border-color, white;
   -fx-background-insets: 0, 0 0 1 0;
   -fx-padding: 0em; /* 0 */
 }

@@ -288,7 +288,7 @@
                                                 </Button>
                                              </children>
                                           </AnchorPane>
-                                          <TableView fx:id="tvPatients" layoutX="14.0" layoutY="66.0" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+                                          <TableView fx:id="tvPatients" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
                                             <columns>
                                               <TableColumn fx:id="tcPatientId" prefWidth="44.0" text="ID" />
                                               <TableColumn fx:id="tcPatientNom" prefWidth="270.0" text="Nom" />
@@ -316,7 +316,10 @@
                             </Tab>
                               <Tab fx:id="tabAddConsulta" text="Ajouter Patient">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                       </children></AnchorPane>
                                 </content>
                               </Tab>
                           </tabs>
@@ -357,7 +360,7 @@
                                                 </Button>
                                              </children>
                                           </AnchorPane>
-                                          <TableView fx:id="tvConsulta" layoutX="14.0" layoutY="66.0" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+                                          <TableView fx:id="tvConsulta" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
                                              <columns>
                                                 <TableColumn fx:id="tcConsultaId" prefWidth="44.0" text="ID" />
                                                 <TableColumn fx:id="tcConsultaIdPatient" prefWidth="270.0" text="ID Patient" />
@@ -383,7 +386,10 @@
                               </Tab>
                               <Tab fx:id="tabAddConsulta" text="Ajouter Consultation">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                       </children></AnchorPane>
                                 </content>
                               </Tab>
                            </tabs>
@@ -397,16 +403,16 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <TabPane fx:id="tpSec1" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TabPane fx:id="tpRV" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <tabs>
-                              <Tab fx:id="tabSec1" text="Liste des rendez-vous">
+                              <Tab fx:id="tabRV" text="Liste des rendez-vous">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                                        <children>
                                           <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                           <AnchorPane layoutX="6.0" layoutY="3.0" prefHeight="63.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
                                              <children>
-                                                <TextField fx:id="tfSearchSec1" layoutX="49.0" layoutY="13.0" prefHeight="35.0" prefWidth="357.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
+                                                <TextField fx:id="tfSearchRV" layoutX="49.0" layoutY="13.0" onAction="#handleSearch" prefHeight="35.0" prefWidth="357.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
                                                    <font>
                                                       <Font name="Monospaced Regular" size="18.0" />
                                                    </font>
@@ -416,23 +422,22 @@
                                                       <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_menu_96px.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ComboBox fx:id="cbSec1" layoutX="417.0" layoutY="13.0" prefHeight="36.0" prefWidth="306.0" AnchorPane.leftAnchor="417.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="13.0" />
-                                                <Button fx:id="btnAddSec1" alignment="CENTER" layoutX="757.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="225.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Ajouter Secretaire" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0">
+                                                <ComboBox fx:id="cbRV" layoutX="417.0" layoutY="13.0" prefHeight="36.0" prefWidth="299.0" AnchorPane.leftAnchor="417.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="13.0" />
+                                                <Button fx:id="btnAddRV" alignment="CENTER" layoutX="757.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="239.0" styleClass="side-bar-btn" stylesheets="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/Medecin.css" text="Ajouter Rendez-vous" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0">
                                                    <font>
                                                       <Font name="Monospaced Regular" size="18.0" />
                                                    </font>
                                                 </Button>
                                              </children>
                                           </AnchorPane>
-                                          <TableView fx:id="tvSec1" layoutX="14.0" layoutY="66.0" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+                                          <TableView fx:id="tvRV" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
                                              <columns>
-                                                <TableColumn fx:id="tvSecId1" prefWidth="44.0" text="ID" />
-                                                <TableColumn fx:id="tvSecNom1" prefWidth="270.0" text="Nom" />
-                                                <TableColumn fx:id="tvSecPrenom1" prefWidth="169.0" text="Prénom" />
-                                                <TableColumn fx:id="tvSecBD1" prefWidth="85.0" text="Date de naissance" />
-                                                <TableColumn fx:id="tvSecTelf1" prefWidth="85.0" text="Téléphone" />
-                                                <TableColumn fx:id="tvSecSexe1" prefWidth="85.0" text="Sexe" />
-                                                <TableColumn fx:id="tvSecSalaire1" prefWidth="85.0" text="Salaire" />
+                                                <TableColumn fx:id="tcRVId" prefWidth="44.0" text="ID" />
+                                                <TableColumn fx:id="tcRVQuand" prefWidth="270.0" text="Date" />
+                                                <TableColumn fx:id="tcRVTemps" prefWidth="169.0" text="Temps" />
+                                                <TableColumn fx:id="tcRVIdPatient" prefWidth="85.0" text="ID Patient" />
+                                                <TableColumn fx:id="tcRVNomPatient" prefWidth="85.0" text="Nom Patient" />
+                                                <TableColumn fx:id="tcRVPrenomPatient" prefWidth="85.0" text="Prénom Patient" />
                                              </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -442,7 +447,7 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab fx:id="tabSecProfil1" text="Rendez-vous Details">
+                              <Tab fx:id="tabRVDetails" text="Rendez-vous Details">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
@@ -451,9 +456,13 @@
                                     </AnchorPane>
                                  </content>
                               </Tab>
-                              <Tab fx:id="tabAddSec1" text="Ajouter un rendez-vous">
+                              <Tab fx:id="tabAddRV" text="Ajouter un rendez-vous">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                       </children>
+                                    </AnchorPane>
                                  </content>
                               </Tab>
                            </tabs>
@@ -494,15 +503,15 @@
                                                 </Button>
                                              </children>
                                           </AnchorPane>
-                                          <TableView fx:id="tvSec" layoutX="14.0" layoutY="66.0" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+                                          <TableView fx:id="tvSec" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
                                              <columns>
-                                                <TableColumn fx:id="tvSecId" prefWidth="44.0" text="ID" />
-                                                <TableColumn fx:id="tvSecNom" prefWidth="270.0" text="Nom" />
-                                                <TableColumn fx:id="tvSecPrenom" prefWidth="169.0" text="Prénom" />
-                                                <TableColumn fx:id="tvSecBD" prefWidth="85.0" text="Date de naissance" />
-                                                <TableColumn fx:id="tvSecTelf" prefWidth="85.0" text="Téléphone" />
-                                                <TableColumn fx:id="tvSecSexe" prefWidth="85.0" text="Sexe" />
-                                                <TableColumn fx:id="tvSecSalaire" prefWidth="85.0" text="Salaire" />
+                                                <TableColumn fx:id="tcSecId" prefWidth="44.0" text="ID" />
+                                                <TableColumn fx:id="tcSecNom" prefWidth="270.0" text="Nom" />
+                                                <TableColumn fx:id="tcSecPrenom" prefWidth="169.0" text="Prénom" />
+                                                <TableColumn fx:id="tcSecBD" prefWidth="85.0" text="Date de naissance" />
+                                                <TableColumn fx:id="tcSecTelf" prefWidth="85.0" text="Téléphone" />
+                                                <TableColumn fx:id="tcSecSexe" prefWidth="85.0" text="Sexe" />
+                                                <TableColumn fx:id="tcSecSalaire" prefWidth="85.0" text="Salaire" />
                                              </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -523,7 +532,10 @@
                               </Tab>
                               <Tab fx:id="tabAddSec" text="Ajouter Secretaire">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" />
+                                       </children></AnchorPane>
                                 </content>
                               </Tab>
                            </tabs>
