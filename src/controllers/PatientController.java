@@ -22,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -34,13 +35,15 @@ import javafx.scene.input.MouseEvent;
 import classes.CurrentUserData;
 import classes.Patient;
 import classes.RDV;
+import classes.Users;
 
 
 public class PatientController implements Initializable{
 	
 	
 	
-
+	 @FXML
+	    private AnchorPane pnlRVHider;
 
     @FXML
     private Button btnAcceuil;
@@ -210,7 +213,9 @@ public class PatientController implements Initializable{
     
     @FXML
     private Button btnWoo;
-    
+    @FXML
+    private Button   __btnDel;
+  
     private Patient p = new Patient();
 	    
     private Stage stage;
@@ -349,7 +354,7 @@ public class PatientController implements Initializable{
 
     
     @FXML
-    void handleClicks(ActionEvent event) {
+    void handleClicks(ActionEvent event) throws SQLException {
     	
     	// side bar
     	if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
@@ -383,12 +388,26 @@ public class PatientController implements Initializable{
 			where(31);
 		}
 		
+		if (event.getSource() == btnSendRVReq) {
+			RDV r = new RDV(-1,  Date.valueOf(dpReqRVDate.getValue()), Integer.parseInt(tfReqRVHeure.getText()), Integer.parseInt(tfReqRVMin.getText()), false, p.getId(), new Date(1999,1,2), true);
+			r.create();
+		}
+		
 		
     }
 
     @FXML
     void fnAfficher(ActionEvent event) {
     	System.out.println("lkjlkj");
+    }
+    
+
+    @FXML
+    void deeel(ActionEvent event) throws SQLException {
+    	p.delete();
+    	int i = Users.getUserFromPatientId(p.getId());
+    	Users.delete(i);
+    	
     }
 
 }

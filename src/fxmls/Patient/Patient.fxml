@@ -605,9 +605,8 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Label layoutX="276.0" layoutY="200.0" text="edit password" />
-                        <Label layoutX="327.0" layoutY="265.0" text="delete account" />
-                        <Button fx:id="btnWoo" layoutX="250.0" layoutY="63.0" mnemonicParsing="false" onAction="#fnAfficher" prefHeight="76.0" prefWidth="272.0" text="Button" />
+                        <Button fx:id="btnWoo" layoutX="250.0" layoutY="63.0" mnemonicParsing="false" onAction="#fnAfficher" prefHeight="76.0" prefWidth="272.0" text="Button" visible="false" />
+                        <Button fx:id="__btnDel" layoutX="344.0" layoutY="512.0" mnemonicParsing="false" onAction="#deeel" prefHeight="82.0" prefWidth="217.0" text="Supprimer compte" />
                      </children>
                   </AnchorPane>
                </content>
@@ -646,7 +645,7 @@
                   <Font name="Monospaced Regular" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="535.0" layoutY="29.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" text="Button" />
+            <Button fx:id="btnLogout" layoutX="725.0" layoutY="15.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Se déconnecter" />
          </children>
       </AnchorPane>
    </children>

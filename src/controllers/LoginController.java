@@ -126,9 +126,9 @@ public class LoginController implements Initializable {
     private TextField tfUsername1;
 
     ToggleGroup toggleGroup = new ToggleGroup();
-
-    
-    
+   
+   
+  
 
     
 	@Override
@@ -305,6 +305,8 @@ public class LoginController implements Initializable {
 		if(event.getSource() == btnClose) {
 			System.exit(0);
 		}
+		
+	
 	}
 	
 	 

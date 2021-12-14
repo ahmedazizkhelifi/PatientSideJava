@@ -259,7 +259,6 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Label layoutX="270.0" layoutY="167.0" text="Label" />
                      </children>
                   </AnchorPane>
             </content>
@@ -1006,39 +1005,48 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutY="1.0" prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <AnchorPane layoutX="6.0" layoutY="3.0" prefHeight="63.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
-                                 <children>
-                                    <TextField fx:id="tfSearchRV1" layoutX="49.0" layoutY="13.0" onAction="#handleSearch" prefHeight="35.0" prefWidth="599.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
-                                       <font>
-                                          <Font name="Monospaced Regular" size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
-                                       <image>
-                                          <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_search_48px.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ComboBox fx:id="cbRV1" layoutX="662.0" layoutY="13.0" prefHeight="36.0" prefWidth="299.0" AnchorPane.leftAnchor="662.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0" />
-                                 </children>
-                              </AnchorPane>
-                              <TableView fx:id="tvRV1" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
-                                 <columns>
-                                    <TableColumn fx:id="tcRVId1" prefWidth="44.0" text="ID" />
-                                    <TableColumn fx:id="tcRVQuand1" prefWidth="270.0" text="Date" />
-                                    <TableColumn fx:id="tcRVTemps1" prefWidth="169.0" text="Temps" />
-                                    <TableColumn fx:id="tcRVIdPatient1" prefWidth="85.0" text="ID Patient" />
-                                    <TableColumn fx:id="tcRVNomPatient1" prefWidth="85.0" text="Nom Patient" />
-                                    <TableColumn fx:id="tcRVPrenomPatient1" prefWidth="85.0" text="Prénom Patient" />
-                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
+                        <TabPane layoutX="21.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                            <Tab text="Demandes">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <AnchorPane prefHeight="3.0" prefWidth="977.0" style="-fx-background-color: #808BBD;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <AnchorPane layoutX="6.0" layoutY="3.0" prefHeight="63.0" prefWidth="975.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0">
+                                             <children>
+                                                <TextField fx:id="tfSearchRV1" layoutX="49.0" layoutY="13.0" onAction="#handleSearch" prefHeight="35.0" prefWidth="599.0" promptText="Recherche" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="13.0">
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </TextField>
+                                                <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                   <image>
+                                                      <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/icons/icons8_search_48px.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ComboBox fx:id="cbRV1" layoutX="662.0" layoutY="13.0" prefHeight="36.0" prefWidth="299.0" AnchorPane.leftAnchor="662.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <TableView fx:id="tvRV1" layoutX="14.0" layoutY="66.0" onMouseClicked="#cellDoubleClicked" prefHeight="572.0" prefWidth="951.0" stylesheets="@../../CSS/tableView.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="60.0">
+                                             <columns>
+                                                <TableColumn fx:id="tcRVId1" prefWidth="44.0" text="ID" />
+                                                <TableColumn fx:id="tcRVQuand1" prefWidth="270.0" text="Date" />
+                                                <TableColumn fx:id="tcRVTemps1" prefWidth="169.0" text="Temps" />
+                                                <TableColumn fx:id="tcRVIdPatient1" prefWidth="85.0" text="ID Patient" />
+                                                <TableColumn fx:id="tcRVNomPatient1" prefWidth="85.0" text="Nom Patient" />
+                                                <TableColumn fx:id="tcRVPrenomPatient1" prefWidth="85.0" text="Prénom Patient" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                            <Tab text="aacpt?" />
+                          </tabs>
+                        </TabPane>
                      </children>
                   </AnchorPane>
                </content>
@@ -1068,7 +1076,7 @@
                               <Font name="Monospaced Regular" size="18.0" />
                            </font>
                         </PasswordField>
-                        <Button fx:id="btnLogin" layoutX="323.0" layoutY="273.0" mnemonicParsing="false" onAction="#Login" prefHeight="65.0" prefWidth="228.0" styleClass="inBlue-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="Se connecter" AnchorPane.bottomAnchor="337.0" AnchorPane.leftAnchor="323.0" AnchorPane.rightAnchor="424.0">
+                        <Button fx:id="btnLogin" layoutX="323.0" layoutY="273.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="228.0" styleClass="inBlue-btn" stylesheets="@../../../../Pleeeeeeeeeeease/src/application/Login.css" text="Se connecter" AnchorPane.bottomAnchor="337.0" AnchorPane.leftAnchor="323.0" AnchorPane.rightAnchor="424.0">
                            <font>
                               <Font name="Monospaced Regular" size="18.0" />
                            </font>
@@ -1123,7 +1131,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="_pnlHider" layoutX="336.0" prefHeight="82.0" prefWidth="977.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="_pnlHider" layoutX="336.0" prefHeight="82.0" prefWidth="977.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="944.0" layoutY="14.0" prefHeight="23.0" prefWidth="19.0" text="X" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
             <Label layoutX="14.0" layoutY="51.0" text="PatientSide/Médecin/">
@@ -1136,7 +1144,7 @@
                   <Font name="Monospaced Regular" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnLogout" layoutX="686.0" layoutY="29.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" text="Button" />
+            <Button fx:id="btnLogout" layoutX="758.0" layoutY="15.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="147.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Se déconnecter" />
          </children>
       </AnchorPane>
    </children>

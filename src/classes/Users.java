@@ -26,6 +26,10 @@ public class Users {
       this.username = username;
       this.password = password;
    }
+   
+   public Users() {
+	   
+   }
 
    // <CRUD
 
@@ -52,6 +56,19 @@ public class Users {
 
    // R
    // Pas de READ pour Users
+   public static int getUserFromPatientId(int id) throws SQLException {
+	    String query = "SELECT * FROM users WHERE id_role = ?";
+	    Users u = new Users();
+	    int r = -1;
+	    PreparedStatement statement = conn.prepareStatement(query);
+	    statement.setInt(1, id);
+	    ResultSet result = statement.executeQuery();
+	    return -1;
+	    /*if (result.next()) {
+	    	return result.getInt(1);
+	    }
+	    return -1; */
+	  }
    // R\
 
    // U
@@ -79,6 +96,18 @@ public class Users {
          System.out.println("A user was deleted successfully!");
       }
    }
+   
+   public static void delete(int id) throws SQLException {
+	      //requete a executer( supprimer le user de l'ID i)
+	   	System.out.println("id: " +  id);
+	      String sql = "DELETE FROM users WHERE id = ?";
+	      PreparedStatement statement = conn.prepareStatement(sql);
+	      statement.setInt(1, id);
+	      int rowsDeleted = statement.executeUpdate();
+	      if (rowsDeleted > 0) {
+	         System.out.println("A user was deleted successfully!");
+	      }
+	   }
    // D\
 
    // CRUD/>
