@@ -51,11 +51,15 @@ public class MedecinController implements Initializable {
    private Scene scene;
    private Parent root;
    
+
    @FXML
    private Button __btnAddPatient;
 
    @FXML
    private Label __lblUserAccount;
+
+   @FXML
+   private Label __lblUserId1;
 
    @FXML
    private AnchorPane __pnlLogin;
@@ -70,16 +74,31 @@ public class MedecinController implements Initializable {
    private TextField __tfAdress;
 
    @FXML
+   private TextArea __tfAdresse1;
+
+   @FXML
    private DatePicker __tfBd;
 
    @FXML
    private TextField __tfNom;
 
    @FXML
+   private TextField __tfNom1;
+
+   @FXML
    private TextField __tfPrenom;
 
    @FXML
+   private TextField __tfPrenom1;
+
+   @FXML
+   private TextField __tfSexe1;
+
+   @FXML
    private TextField __tfTel;
+
+   @FXML
+   private TextField __tfTel1;
 
    @FXML
    private Label _lblIdConsulta;
@@ -431,7 +450,7 @@ public class MedecinController implements Initializable {
       } catch (SQLException e) {
          e.printStackTrace();
       }
-      _pnlHider.setVisible(true);
+      //_pnlHider.setVisible(true);
       pnlMainHider.setVisible(false);
       __rbH.setToggleGroup(toggleGroup);
       __rbF.setToggleGroup(toggleGroup);
@@ -453,7 +472,15 @@ public class MedecinController implements Initializable {
 	   }
 	   
 	   if (event.getSource() == tvPatients) {
-		   doubleClickNavigation(tpConsulta, event);
+		   doubleClickNavigation(tpPatients1, event);
+		   
+		   Patient p = Patient.getPatientFromId(tvPatients.getSelectionModel().getSelectedItem().getId());
+		   __lblUserId1.setText(Integer.toString(p.getId()));
+		   __tfNom1.setText(p.getNom());
+		   __tfPrenom1.setText(p.getPrenom());
+		   __tfTel1.setText(p.getTelf());
+		   __tfSexe1.setText(p.getSexe());
+		   __tfAdresse1.setText(p.getAdresse());
 	   }
 	   
 	   if (event.getSource() == tvRV) {
@@ -491,7 +518,7 @@ public class MedecinController implements Initializable {
          lblWhere.setText("Patients");
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainPatients);
-         pnlMainHider.setVisible(true);
+         //pnlMainHider.setVisible(true);
 
          break;
       case 2:
@@ -499,19 +526,19 @@ public class MedecinController implements Initializable {
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainConsultations);
          tpConsulta.getSelectionModel().select(0);
-         pnlMainHider.setVisible(true);
+         //pnlMainHider.setVisible(true);
          break;
       case 3:
          lblWhere.setText("Rendez-vous");
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainRV);
-         pnlMainHider.setVisible(true);
+         //pnlMainHider.setVisible(true);
          break;
       case 4:
          lblWhere.setText("Secretaires");
          resetSecondaryNavigation();
          tabsMedecin.getSelectionModel().select(tabMainSec);
-         pnlMainHider.setVisible(true);
+         //pnlMainHider.setVisible(true);
          break;
       case 5:
          lblWhere.setText("Agenda");
@@ -566,21 +593,24 @@ public class MedecinController implements Initializable {
       }
       
       if(event.getSource() == btnAddRV) {
+    	
+    	  tabsMedecin.getSelectionModel().select(tabMainRV);
     	  tpRV.getSelectionModel().select(2);
       }
       
-      if(event.getSource() == btnAddSec) {
-    	  tpSec.getSelectionModel().select(2);
+      if(event.getSource() == btnAddConsulta) {
+    	 
+    	  tabsMedecin.getSelectionModel().select(tabMainConsultations);
+    	  tpConsulta.getSelectionModel().select(2);
       }
       
       if(event.getSource() == btnAddPatient) {
     	  resetAjouterPat();
-    	  // w faregh l contenu taa lokhrin
     	  tpPatients1.getSelectionModel().select(2);
       }
       
-      if(event.getSource() == btnAddConsulta) {
-    	  tpConsulta.getSelectionModel().select(2);
+      if(event.getSource() == btnAddSec) {
+    	  tpSec.getSelectionModel().select(2);
       }
       
       if (event.getSource() == __btnAddPatient) {

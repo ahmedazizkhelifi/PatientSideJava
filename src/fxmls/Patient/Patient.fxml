@@ -244,7 +244,7 @@
                                  <children>
                                     <ImageView fx:id="userImg1" fitHeight="176.0" fitWidth="176.0" layoutX="24.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="58.0">
                                        <image>
-                                          <Image url="@../../../../../Documents/My%20documents/School/comptetion%20ctf/stegano/téléchargé.png" />
+                                          <Image url="@../../../../../Documents/My%20documents/School/3rd%20Sem/Projet%20JAVA/Scenes/user.png" />
                                        </image>
                                     </ImageView>
                                     <Label layoutX="27.0" layoutY="21.0" text="Patient id: " AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="21.0">
