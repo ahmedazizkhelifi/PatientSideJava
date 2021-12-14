@@ -17,13 +17,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.TabPane;
-import application.Main;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
 
 
 public class MedecinController implements Initializable {
@@ -33,12 +37,20 @@ public class MedecinController implements Initializable {
 	private Parent root;
 	
 
-
     @FXML
     private Button btnAcceuil;
 
     @FXML
     private Button btnAcceuil1;
+
+    @FXML
+    private Button btnAddConsulta;
+
+    @FXML
+    private Button btnAddPatient;
+
+    @FXML
+    private Button btnAddSec;
 
     @FXML
     private Button btnAgenda;
@@ -60,6 +72,9 @@ public class MedecinController implements Initializable {
 
     @FXML
     private Button btnHide;
+
+    @FXML
+    private Button btnLogout;
 
     @FXML
     private Button btnParam;
@@ -86,19 +101,52 @@ public class MedecinController implements Initializable {
     private Button btnSecretaires1;
 
     @FXML
+    private ComboBox<?> cbPatient;
+
+    @FXML
+    private ComboBox<?> cbSearchConsulta;
+
+    @FXML
+    private ComboBox<?> cbSec;
+
+    @FXML
     private Label lblWhere;
+
+    @FXML
+    private AnchorPane pnlMainHider;
 
     @FXML
     private Tab tabAcceuil;
 
     @FXML
-    private Tab tabAgenda;
+    private Tab tabAddConsulta;
+
+    @FXML
+    private Tab tabAddSec;
 
     @FXML
     private Tab tabCompta;
 
     @FXML
+    private Tab tabConsultaDetails;
+
+    @FXML
     private Tab tabConsultations;
+
+    @FXML
+    private Tab tabMainAgenda;
+
+    @FXML
+    private Tab tabMainConsultations;
+
+    @FXML
+    private Tab tabMainPatients;
+
+    @FXML
+    private Tab tabMainRV;
+
+    @FXML
+    private Tab tabMainSec;
 
     @FXML
     private Tab tabParam;
@@ -107,20 +155,102 @@ public class MedecinController implements Initializable {
     private Tab tabPatients;
 
     @FXML
-    private Tab tabRV;
+    private Tab tabProfilPatient;
 
     @FXML
     private Tab tabSec;
-    
+
+    @FXML
+    private Tab tabSecProfil;
+
     @FXML
     private TabPane tabsMedecin;
+
+    @FXML
+    private TableColumn<?, ?> tcConsultaId;
+
+    @FXML
+    private TableColumn<?, ?> tcConsultaIdPatient;
+
+    @FXML
+    private TableColumn<?, ?> tcConsultaNomPatient;
+
+    @FXML
+    private TableColumn<?, ?> tcConsultaPrenomPatient;
+
+    @FXML
+    private TableColumn<?, ?> tcPatientBD;
+
+    @FXML
+    private TableColumn<?, ?> tcPatientId;
+
+    @FXML
+    private TableColumn<?, ?> tcPatientNom;
+
+    @FXML
+    private TableColumn<?, ?> tcPatientPrenom;
+
+    @FXML
+    private TableColumn<?, ?> tcPatientSexe;
+
+    @FXML
+    private TableColumn<?, ?> tcPatientTelf;
+
+    @FXML
+    private TextField tfSearchConsulta;
+
+    @FXML
+    private TextField tfSearchPatient;
+
+    @FXML
+    private TextField tfSearchSec;
+
+    @FXML
+    private TabPane tpConsulta;
+
+    @FXML
+    private TabPane tpPatients1;
+
+    @FXML
+    private TabPane tpSec;
+
+    @FXML
+    private TableView<?> tvConsulta;
+
+    @FXML
+    private TableView<?> tvPatients;
+
+    @FXML
+    private TableView<?> tvSec;
+
+    @FXML
+    private TableColumn<?, ?> tvSecBD;
+
+    @FXML
+    private TableColumn<?, ?> tvSecId;
+
+    @FXML
+    private TableColumn<?, ?> tvSecNom;
+
+    @FXML
+    private TableColumn<?, ?> tvSecPrenom;
+
+    @FXML
+    private TableColumn<?, ?> tvSecSalaire;
+
+    @FXML
+    private TableColumn<?, ?> tvSecSexe;
+
+    @FXML
+    private TableColumn<?, ?> tvSecTelf;
 
     @FXML
     private VBox vbSB;
 
     @FXML
     private VBox vbSB1;
-
+    
+   
 	
 	public void logOut(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../fxmls/Login/Login.fxml"));
@@ -153,35 +283,43 @@ public class MedecinController implements Initializable {
 		case 0:
 			lblWhere.setText("Acceuil");
 			tabsMedecin.getSelectionModel().select(tabAcceuil);
+			pnlMainHider.setVisible(false);
 			break;
 		case 1:
 			lblWhere.setText("Patients");
-			tabsMedecin.getSelectionModel().select(tabPatients);
+			tabsMedecin.getSelectionModel().select(tabMainPatients);
+			pnlMainHider.setVisible(true);
+			
 			break;
 		case 2:
 			lblWhere.setText("Consultations");
-			tabsMedecin.getSelectionModel().select(tabConsultations);
+			tabsMedecin.getSelectionModel().select(tabMainConsultations);
+			pnlMainHider.setVisible(true);
 			break;
 		case 3:
 			lblWhere.setText("Rendez-vous");
-			tabsMedecin.getSelectionModel().select(tabRV);
+			tabsMedecin.getSelectionModel().select(tabMainRV);
+			pnlMainHider.setVisible(true);
 			break;
 		case 4:
 			lblWhere.setText("Secretaires");
-			tabsMedecin.getSelectionModel().select(tabSec);
+			tabsMedecin.getSelectionModel().select(tabMainSec);
+			pnlMainHider.setVisible(true);
 			break;
 		case 5:
 			lblWhere.setText("Agenda");
-			tabsMedecin.getSelectionModel().select(tabAgenda);
+			tabsMedecin.getSelectionModel().select(tabMainAgenda);
+			pnlMainHider.setVisible(false);
 			break;
 		case 6:
 			lblWhere.setText("Comptabilité");
 			tabsMedecin.getSelectionModel().select(tabCompta);
+			pnlMainHider.setVisible(false);
 			break;
 		case 7:
 			lblWhere.setText("Paramètres");
 			tabsMedecin.getSelectionModel().select(tabParam);
-			
+			pnlMainHider.setVisible(false);
 			break;
 		}
 	}
@@ -192,7 +330,6 @@ public class MedecinController implements Initializable {
 	private void handleClicks (ActionEvent event) {
 		event.consume();
 		if (event.getSource() == btnAcceuil || event.getSource() == btnAcceuil1) {
-			receiveData(event);
 			where(0);
 		}
 		
@@ -257,6 +394,12 @@ public class MedecinController implements Initializable {
 	        	System.out.println(event.getSource().toString());
 	        	tabsMedecin.getSelectionModel().select(1);
 	        }
+	    }
+	  
+
+	    @FXML
+	    void handleSearch(ActionEvent event) {
+
 	    }
 }
 

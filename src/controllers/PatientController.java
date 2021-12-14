@@ -243,7 +243,7 @@ public class PatientController implements Initializable{
 		System.out.println(_RDVs);
 		
 		tcRVId.setCellValueFactory(new PropertyValueFactory<RDV, Integer>("id"));
-		tcRVDate.setCellValueFactory(new PropertyValueFactory<RDV, Date>("date_RDV"));
+		tcRVDate.setCellValueFactory(new PropertyValueFactory<RDV, Date>("quand"));
 		tcRVDone.setCellValueFactory(new PropertyValueFactory<RDV, Integer>("done"));
 		ObservableList<RDV> RDVs = FXCollections.observableArrayList(_RDVs);
 
